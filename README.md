@@ -38,7 +38,7 @@ records it produced plus the script that draws its figures.
 
 | Experiment | Configs | Records and figures |
 |---|---|---|
-| Setting A, the established benchmark | not runnable here, see the caveat below | `reports/final/cka_rl/` |
+| Setting A, the established benchmark | run in [CKA-RL](https://github.com/Fhujinwu/CKA-RL), not here | `reports/final/cka_rl/` |
 | Setting B, fifty GridWorld tasks | `duel_v2_fix.yaml`, `biggrid50v2_*.yaml` | `reports/final/gridworld_v2/`, `reports/biggrid50v2/` |
 | Setting B, environment access | `biggrid50v2_*_env.yaml` | `reports/final/env_access_full/`, `reports/gridworld_env_access/` |
 | Setting C, five Atari games | `atari5*.yaml`, `atari_base_*.yaml` | `reports/final/atari_reversed/`, `reports/order_sensitivity/` |
@@ -255,17 +255,10 @@ before it was renamed to VCC. The configs, the summary keys in the committed
 records and some figure labels still use it. `DUEL` and `VCC` are the same
 method throughout; nothing else changed with the name.
 
-**Setting A is reported here but not runnable from this repository.** That
-comparison was produced by adding our method as a row inside the released
-codebase of the benchmark's authors, which uses their harness and their task
-definitions for the Space Invaders and Freeway mode sequences. The environment
-layer here has no mode parameter and cannot construct those sequences. What this
-repository carries is the output side in full: per-mode return files for all eight
-Freeway modes and all ten Space Invaders modes, the phase summaries, the
-retention history, the transcribed benchmark table, and the script that draws
-the comparison. The Meta-World figures for the other methods are the published
-ones. The hyperparameters we used are in the table above, so the row can be
-reproduced inside that harness.
+**Setting A is not runnable from this repository.** That comparison was run in
+the benchmark authors' own codebase, <https://github.com/Fhujinwu/CKA-RL>, with
+our method added as a row. What is here is the result side, under
+`reports/final/cka_rl/`, and the script that draws the comparison table.
 
 ---
 
