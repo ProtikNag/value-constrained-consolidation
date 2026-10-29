@@ -1,0 +1,101 @@
+{
+  "env_id": "ALE/SpaceInvaders-v5",
+  "modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "eval_episodes": 100,
+  "greedy": true,
+  "per_mode": {
+    "0": {
+      "task_idx": 0,
+      "mean_return": 443.95,
+      "std_return": 185.37569285103157,
+      "threshold": 279.848,
+      "success": true,
+      "n_episodes": 100
+    },
+    "1": {
+      "task_idx": 1,
+      "mean_return": 425.6,
+      "std_return": 208.92376600090284,
+      "threshold": 326.349,
+      "success": true,
+      "n_episodes": 100
+    },
+    "2": {
+      "task_idx": 2,
+      "mean_return": 567.15,
+      "std_return": 168.93379620431193,
+      "threshold": 323.88,
+      "success": true,
+      "n_episodes": 100
+    },
+    "3": {
+      "task_idx": 3,
+      "mean_return": 646.05,
+      "std_return": 239.20524137234116,
+      "threshold": 274.811,
+      "success": true,
+      "n_episodes": 100
+    },
+    "4": {
+      "task_idx": 4,
+      "mean_return": 643.0,
+      "std_return": 222.93272527827762,
+      "threshold": 369.782,
+      "success": true,
+      "n_episodes": 100
+    },
+    "5": {
+      "task_idx": 5,
+      "mean_return": 574.0,
+      "std_return": 159.6934563468397,
+      "threshold": 243.812,
+      "success": true,
+      "n_episodes": 100
+    },
+    "6": {
+      "task_idx": 6,
+      "mean_return": 632.35,
+      "std_return": 246.6510237156943,
+      "threshold": 332.885,
+      "success": true,
+      "n_episodes": 100
+    },
+    "7": {
+      "task_idx": 7,
+      "mean_return": 579.95,
+      "std_return": 195.3324025859509,
+      "threshold": 333.781,
+      "success": true,
+      "n_episodes": 100
+    },
+    "8": {
+      "task_idx": 8,
+      "mean_return": 793.4,
+      "std_return": 341.2827859708134,
+      "threshold": 462.198,
+      "success": true,
+      "n_episodes": 100
+    },
+    "9": {
+      "task_idx": 9,
+      "mean_return": 615.55,
+      "std_return": 224.58394310368675,
+      "threshold": 383.627,
+      "success": true,
+      "n_episodes": 100
+    }
+  },
+  "avg_mean_return": 592.1,
+  "success_rate": 1.0
+}

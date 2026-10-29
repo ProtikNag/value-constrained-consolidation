@@ -1,0 +1,552 @@
+{
+  "biggrid50-goal(12,40)": {
+    "task": 1,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1343.8,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(14,29)": {
+    "task": 2,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1387.5,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(37,22)": {
+    "task": 3,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1407.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(17,8)": {
+    "task": 4,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1325.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(41,10)": {
+    "task": 5,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1396.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(13,43)": {
+    "task": 6,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1507.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(9,46)": {
+    "task": 7,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1560.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(18,34)": {
+    "task": 8,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1579.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(17,26)": {
+    "task": 9,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1607.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(45,12)": {
+    "task": 10,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1670.9,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(39,20)": {
+    "task": 11,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1730.6,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(46,3)": {
+    "task": 12,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1890.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(15,20)": {
+    "task": 13,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2067.5,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(25,5)": {
+    "task": 14,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2111.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(47,41)": {
+    "task": 15,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2145.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(44,47)": {
+    "task": 16,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2174.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(18,22)": {
+    "task": 17,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2226.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(22,25)": {
+    "task": 18,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2144.8,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(3,42)": {
+    "task": 19,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2319.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(35,8)": {
+    "task": 20,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2344.4,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(28,27)": {
+    "task": 21,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2348.1,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(44,15)": {
+    "task": 22,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2443.5,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(32,5)": {
+    "task": 23,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2495.6,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(30,10)": {
+    "task": 24,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2512.1,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(2,25)": {
+    "task": 25,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2505.4,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(6,32)": {
+    "task": 26,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2534.5,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(44,25)": {
+    "task": 27,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2671.9,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(26,45)": {
+    "task": 28,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2659.6,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(5,45)": {
+    "task": 29,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2730.1,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(18,11)": {
+    "task": 30,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2442.6,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(33,31)": {
+    "task": 31,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2814.1,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(12,3)": {
+    "task": 32,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2808.1,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(25,17)": {
+    "task": 33,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2934.9,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(29,33)": {
+    "task": 34,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2875.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(6,39)": {
+    "task": 35,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2872.8,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(13,10)": {
+    "task": 36,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2658.9,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(26,39)": {
+    "task": 37,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2934.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(46,35)": {
+    "task": 38,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3100.6,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(22,4)": {
+    "task": 39,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3150.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(39,32)": {
+    "task": 40,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3159.0,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(23,42)": {
+    "task": 41,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3140.8,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(27,13)": {
+    "task": 42,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3288.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(33,24)": {
+    "task": 43,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3316.7,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(40,38)": {
+    "task": 44,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3140.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(39,26)": {
+    "task": 45,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3460.4,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(21,36)": {
+    "task": 46,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3461.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(15,2)": {
+    "task": 47,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3375.8,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(2,5)": {
+    "task": 48,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3415.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(6,16)": {
+    "task": 49,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3797.3,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  },
+  "biggrid50-goal(37,35)": {
+    "task": 50,
+    "cka_rl": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3697.2,
+      "final_greedy": null,
+      "best_greedy": null
+    }
+  }
+}

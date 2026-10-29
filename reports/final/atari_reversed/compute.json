@@ -1,0 +1,26 @@
+{
+  "provenance": {
+    "what": "Wall-clock cost of one full five-game Atari run, seed 0, single GPU.",
+    "source": "report/figures/compute_cost_wall.svg, the rendered figure built by report/gen_figures.py::fig_compute_cost. The underlying run directories (results/atari5_v5_order2_seed0, the three CLEAR sweep runs, atari5_joint_6m_seed0) are gitignored and live only on the cluster, so the values are cached here.",
+    "measurement_caveat": "THE TWO SERIES ARE MEASURED DIFFERENTLY and the comparison is indicative, not exact. Ours sums per-phase wall_s (task1 + local + global) from resource_usage.json, which counts only time inside the training phases. CLEAR and Joint take t_wall from the last row of logs.jsonl, which is total elapsed and therefore also includes evaluation, checkpointing and setup. Ours is the understated series, so its true total elapsed is higher than shown and the gap here is an UPPER bound on ours' advantage. The advantage survives the caveat comfortably at this magnitude (18.1 h against 36.4-37.3 h) but do not quote the gap as exact.",
+    "seeds": "Single seed. No error bars are drawn and none are invented.",
+    "note_on_existing_figure": "report/manifest.json used to caption compute_cost_wall as 'V5 is substantially slower than CLEAR', which contradicted its own data. Fixed 2026-09-16; both now say the same thing."
+  },
+  "hours": {
+    "ours": 18.1,
+    "clear": [
+      36.9,
+      36.4,
+      37.3
+    ],
+    "joint": 13.2
+  },
+  "labels": {
+    "ours": "DUEL (ours)",
+    "clear": "CLEAR",
+    "joint": "Joint"
+  },
+  "_ours_note": "The min-max run on the task order used throughout this report.",
+  "_clear_note": "Across the CLEAR replay-buffer configurations, which land within 0.9 h of one another (36.4, 36.9, 37.3).",
+  "_joint_note": "The budget-matched jointly-trained model, 6M frames per game."
+}

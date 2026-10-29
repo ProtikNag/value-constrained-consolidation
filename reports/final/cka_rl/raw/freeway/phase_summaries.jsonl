@@ -1,0 +1,15 @@
+{"t_wall": 1449.09, "task": 0, "phase": "task0", "steps": 999424, "local_ref": 22.08, "wall_sec": 1449.1}
+{"t_wall": 2925.78, "task": 1, "phase": "local", "steps": 999424, "local_ref": 23.24, "wall_sec": 1476.7}
+{"t_wall": 5598.1, "task": 1, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 819200, "final_active_modes": [1], "mu_final": 5.0, "Vk_L": 4.212, "Vk_G_last": 3.853, "shortfall_last": 0.3594}
+{"t_wall": 7073.86, "task": 2, "phase": "local", "steps": 999424, "local_ref": 19.97, "wall_sec": 1475.7}
+{"t_wall": 10356.65, "task": 2, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 1228800, "final_active_modes": [2], "mu_final": 4.87444, "Vk_L": 3.201, "Vk_G_last": 3.191, "shortfall_last": 0.01}
+{"t_wall": 11839.99, "task": 3, "phase": "local", "steps": 999424, "local_ref": 24.93, "wall_sec": 1483.3}
+{"t_wall": 15210.46, "task": 3, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 1228800, "final_active_modes": [2, 3], "mu_final": 4.67035, "Vk_L": 4.55, "Vk_G_last": 4.559, "shortfall_last": 0.0}
+{"t_wall": 16691.92, "task": 4, "phase": "local", "steps": 999424, "local_ref": 30.66, "wall_sec": 1481.4}
+{"t_wall": 20984.68, "task": 4, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 1843200, "final_active_modes": [1, 4], "mu_final": 5.0, "Vk_L": 5.454, "Vk_G_last": 4.405, "shortfall_last": 1.0496}
+{"t_wall": 22477.01, "task": 5, "phase": "local", "steps": 999424, "local_ref": 19.46, "wall_sec": 1492.2}
+{"t_wall": 27866.48, "task": 5, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 2662400, "final_active_modes": [2, 4, 5], "mu_final": 5.0, "Vk_L": 3.399, "Vk_G_last": 2.526, "shortfall_last": 0.8736}
+{"t_wall": 29358.29, "task": 6, "phase": "local", "steps": 999424, "local_ref": 19.2, "wall_sec": 1491.7}
+{"t_wall": 35352.11, "task": 6, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 3072000, "final_active_modes": [6], "mu_final": 4.90772, "Vk_L": 2.942, "Vk_G_last": 3.125, "shortfall_last": 0.0}
+{"t_wall": 36844.39, "task": 7, "phase": "local", "steps": 999424, "local_ref": 26.51, "wall_sec": 1492.2}
+{"t_wall": 42601.09, "task": 7, "phase": "global", "iters_run": 800, "consolidate_mode": "needy", "consolidation_steps": 2867200, "final_active_modes": [2, 4, 6, 7], "mu_final": 4.96506, "Vk_L": 4.424, "Vk_G_last": 4.16, "shortfall_last": 0.2634}

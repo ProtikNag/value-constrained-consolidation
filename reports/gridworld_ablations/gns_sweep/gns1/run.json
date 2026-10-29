@@ -1,0 +1,333 @@
+{
+  "run_name": "duel_abl_len10_gns1_seed0",
+  "method": "constrained",
+  "seed": 0,
+  "git_sha": "4d5ad62",
+  "started": "2026-10-15T00:44:16.086285+00:00",
+  "env_family": "biggrid",
+  "tasks": [
+    "biggrid50-goal(12,40)",
+    "biggrid50-goal(14,29)",
+    "biggrid50-goal(37,22)",
+    "biggrid50-goal(17,8)",
+    "biggrid50-goal(41,10)",
+    "biggrid50-goal(13,43)",
+    "biggrid50-goal(9,46)",
+    "biggrid50-goal(18,34)",
+    "biggrid50-goal(17,26)",
+    "biggrid50-goal(45,12)"
+  ],
+  "task_order": "as_configured",
+  "reference": {
+    "random": [
+      -0.0013484694063663483,
+      -0.0034338433761149645,
+      -0.0010448979446664453,
+      -0.0009350339532829821,
+      -0.0012372448109090328,
+      -0.0007964286487549543,
+      -0.0006610545096918941,
+      -0.0018804421415552497,
+      -0.0006049319636076689,
+      -0.0008690476533956826
+    ],
+    "ceiling": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "config": {
+    "experiment": {
+      "name": "duel_abl_len10_gns1",
+      "seed": 0,
+      "results_dir": "results",
+      "device": "cpu",
+      "log_every": 50
+    },
+    "env": {
+      "family": "biggrid",
+      "params": {
+        "size": 50,
+        "gamma": 0.99,
+        "max_steps": 160,
+        "goal_in_obs": true,
+        "obstacle_seed": 20260930,
+        "reward_mode": "goal_time",
+        "shape_w": 0.05,
+        "wall_death": true,
+        "view_max": 5,
+        "slip_wall_penalty": 0.0,
+        "dataset_npz": "data/biggrid50v2.npz"
+      },
+      "tasks": [
+        {
+          "goal": [
+            12,
+            40
+          ],
+          "slip": 0.08,
+          "obstacle_density": 0.25,
+          "view_radius": 4,
+          "start_band": [
+            15,
+            30
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            14,
+            29
+          ],
+          "slip": 0.1,
+          "obstacle_density": 0.05,
+          "view_radius": 3,
+          "start_band": [
+            30,
+            45
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            37,
+            22
+          ],
+          "slip": 0.01,
+          "obstacle_density": 0.25,
+          "view_radius": 3,
+          "start_band": [
+            5,
+            15
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            17,
+            8
+          ],
+          "slip": 0.02,
+          "obstacle_density": 0.25,
+          "view_radius": 5,
+          "start_band": [
+            15,
+            30
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            41,
+            10
+          ],
+          "slip": 0.02,
+          "obstacle_density": 0.15,
+          "view_radius": 4,
+          "start_band": [
+            15,
+            30
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            13,
+            43
+          ],
+          "slip": 0.08,
+          "obstacle_density": 0.2,
+          "view_radius": 3,
+          "start_band": [
+            60,
+            80
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            9,
+            46
+          ],
+          "slip": 0.04,
+          "obstacle_density": 0.25,
+          "view_radius": 5,
+          "start_band": [
+            60,
+            80
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            18,
+            34
+          ],
+          "slip": 0.02,
+          "obstacle_density": 0.1,
+          "view_radius": 5,
+          "start_band": [
+            45,
+            60
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            17,
+            26
+          ],
+          "slip": 0.01,
+          "obstacle_density": 0.25,
+          "view_radius": 5,
+          "start_band": [
+            15,
+            30
+          ],
+          "threshold": 0.6
+        },
+        {
+          "goal": [
+            45,
+            12
+          ],
+          "slip": 0.02,
+          "obstacle_density": 0.2,
+          "view_radius": 4,
+          "start_band": [
+            45,
+            60
+          ],
+          "threshold": 0.6
+        }
+      ]
+    },
+    "policy": {
+      "kind": "mlp_ac_sep",
+      "hidden_sizes": [
+        512,
+        512,
+        256
+      ],
+      "task_conditioned": true,
+      "pool_size": 5
+    },
+    "estimator": {
+      "kind": "exact",
+      "episodes_per_eval": 16,
+      "episodes_per_grad": 16,
+      "episodes_per_ref": 64,
+      "baseline": "batch_mean",
+      "time_discount_weighting": true
+    },
+    "duals": {
+      "kind": "projected_ascent",
+      "lr": 0.1,
+      "init": 0.0,
+      "max_value": 5.0,
+      "warm_start": false,
+      "decay_when_stuck": true,
+      "stuck_patience": 10,
+      "stuck_decay": 0.5,
+      "stuck_frac": 0.95,
+      "kp": 0.05,
+      "ki": 0.01,
+      "kd": 0.0
+    },
+    "trainer": {
+      "cycles_per_task": 1,
+      "local_steps": 50,
+      "global_steps": 50,
+      "task1_steps": 200,
+      "lr_local": 0.05,
+      "lr_global": 0.05,
+      "optimizer": "sgd",
+      "eps": 0.09,
+      "omega": null,
+      "past_task_sampling": "all",
+      "entropy_coef": 0.0,
+      "eval_episodes": 32,
+      "eval_all_tasks": false,
+      "eval_probe_every": 25,
+      "report_return": false,
+      "kind": "ppo",
+      "local_unconstrained": false
+    },
+    "ppo": {
+      "method": "constrained",
+      "past_task_sampling": "sample",
+      "constraint_greedy": false,
+      "eval_noop_enumerate": false,
+      "eval_max_ep_steps": 0,
+      "joint_iters": 2000,
+      "joint_single_iters": 600,
+      "global_bc_coef": 0.0,
+      "clear_policy_clone_cost": 0.01,
+      "clear_value_clone_cost": 0.005,
+      "clear_snapshot_batches": 2,
+      "clear_replay_task_per_step": 1,
+      "recall_distill_cost": 10.0,
+      "recall_popart": true,
+      "recall_popart_beta": 0.0003,
+      "clear_past_frames_per_phase": 0,
+      "async_envs": false,
+      "n_envs": 32,
+      "n_steps": 128,
+      "ppo_epochs": 4,
+      "target_kl": 0.0,
+      "num_minibatches": 4,
+      "clip_ratio": 0.2,
+      "gae_lambda": 0.95,
+      "vf_coef": 0.5,
+      "ent_coef": 0.01,
+      "max_grad_norm": 0.5,
+      "lr": 0.00025,
+      "normalize_advantage": true,
+      "task1_iters": 200,
+      "local_iters": 300,
+      "local_iters_per_task": {},
+      "select_best_local": true,
+      "local_init_fresh": true,
+      "local_max_attempts": 3,
+      "local_stall_at": 500,
+      "local_stall_thr": 0.1,
+      "global_stop_all_tasks": false,
+      "global_retention_frac": 0.7,
+      "global_iters": 200,
+      "min_iters": 50,
+      "patience": 3,
+      "stop_eval_every": 0,
+      "stop_eval_episodes": 10,
+      "constraint_episodes": 16,
+      "constraint_every": 5,
+      "value_mode": "mc",
+      "window_H": 20,
+      "residual_baseline": "expert",
+      "residual_scalar": "rollout",
+      "past_task_sample_n": 1,
+      "past_full_rescale": true,
+      "past_fixed_fraction": 0.5,
+      "global_n_steps": 1,
+      "global_gae_lambda": 0.0,
+      "global_n_envs": 0,
+      "eval_episodes": 30,
+      "eval_greedy": true,
+      "eval_greedy_episodes": 30,
+      "eval_seed": 100000,
+      "eval_every": 10,
+      "matrix_eval_every": 0,
+      "diagnostics": false,
+      "diag_every": 25,
+      "diag_score_episodes": 6,
+      "global_probe_head_only": false
+    }
+  }
+}

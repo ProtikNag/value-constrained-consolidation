@@ -1,0 +1,102 @@
+{
+ "_comment": "Post-hoc Boxing recovery from the FINAL global (all DISCARDED, net-negative). before/after greedy-100 per game. Shows a forgotten task cannot be patched post-hoc without net loss -> motivates in-sequence best-checkpoint.",
+ "probes": {
+  "10iter_pure": {
+   "games": [
+    "atari-SpaceInvaders",
+    "atari-Boxing",
+    "atari-Breakout",
+    "atari-Pong",
+    "atari-Qbert"
+   ],
+   "before": [
+    762.5999755859375,
+    10.5,
+    235.5500030517578,
+    17.690000534057617,
+    5195.25
+   ],
+   "after": [
+    1387.300048828125,
+    12.819999694824219,
+    76.22000122070312,
+    18.719999313354492,
+    3547.25
+   ],
+   "delta": [
+    624.7,
+    2.3,
+    -159.3,
+    1.0,
+    -1648.0
+   ]
+  },
+  "100iter_pure": {
+   "games": [
+    "atari-SpaceInvaders",
+    "atari-Boxing",
+    "atari-Breakout",
+    "atari-Pong",
+    "atari-Qbert"
+   ],
+   "before": [
+    762.5999755859375,
+    10.5,
+    235.5500030517578,
+    17.690000534057617,
+    5195.25
+   ],
+   "after": [
+    638.7999877929688,
+    46.5099983215332,
+    30.920000076293945,
+    6.289999961853027,
+    771.5
+   ],
+   "delta": [
+    -123.8,
+    36.0,
+    -204.6,
+    -11.4,
+    -4423.8
+   ]
+  },
+  "100iter_mix40_60": {
+   "games": [
+    "atari-SpaceInvaders",
+    "atari-Boxing",
+    "atari-Breakout",
+    "atari-Pong",
+    "atari-Qbert"
+   ],
+   "before": [
+    762.5999755859375,
+    10.5,
+    235.5500030517578,
+    17.690000534057617,
+    5195.25
+   ],
+   "after": [
+    458.54998779296875,
+    33.970001220703125,
+    86.9000015258789,
+    18.100000381469727,
+    4231.75
+   ],
+   "delta": [
+    -304.0,
+    23.5,
+    -148.7,
+    0.4,
+    -963.5
+   ],
+   "step_counts": [
+    13,
+    46,
+    12,
+    17,
+    12
+   ]
+  }
+ }
+}

@@ -1,0 +1,83 @@
+{
+  "env_id": "ALE/Freeway-v5",
+  "modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "eval_episodes": 100,
+  "greedy": true,
+  "per_mode": {
+    "0": {
+      "task_idx": 0,
+      "mean_return": 22.28,
+      "std_return": 2.222970984965841,
+      "threshold": 21.1455,
+      "success": true,
+      "n_episodes": 100
+    },
+    "1": {
+      "task_idx": 1,
+      "mean_return": 16.82,
+      "std_return": 2.44695729427385,
+      "threshold": 19.177,
+      "success": false,
+      "n_episodes": 100
+    },
+    "2": {
+      "task_idx": 2,
+      "mean_return": 14.28,
+      "std_return": 4.754114007888326,
+      "threshold": 10.5049,
+      "success": true,
+      "n_episodes": 100
+    },
+    "3": {
+      "task_idx": 3,
+      "mean_return": 24.88,
+      "std_return": 0.35440090293338694,
+      "threshold": 21.7043,
+      "success": true,
+      "n_episodes": 100
+    },
+    "4": {
+      "task_idx": 4,
+      "mean_return": 22.03,
+      "std_return": 1.7518846994023323,
+      "threshold": 23.5458,
+      "success": false,
+      "n_episodes": 100
+    },
+    "5": {
+      "task_idx": 5,
+      "mean_return": 14.18,
+      "std_return": 2.03656573672445,
+      "threshold": 11.9761,
+      "success": true,
+      "n_episodes": 100
+    },
+    "6": {
+      "task_idx": 6,
+      "mean_return": 12.91,
+      "std_return": 2.0789179878003847,
+      "threshold": 11.6078,
+      "success": true,
+      "n_episodes": 100
+    },
+    "7": {
+      "task_idx": 7,
+      "mean_return": 25.85,
+      "std_return": 1.49248115565993,
+      "threshold": 17.7292,
+      "success": true,
+      "n_episodes": 100
+    }
+  },
+  "avg_mean_return": 19.15375,
+  "success_rate": 0.75
+}

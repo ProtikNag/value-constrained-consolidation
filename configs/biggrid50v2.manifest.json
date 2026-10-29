@@ -1,0 +1,1149 @@
+{
+  "generator": "experiments/generate_biggrid_tasks.py",
+  "command": "python -m experiments.generate_biggrid_tasks --out configs/biggrid50v2.yaml --seed 20260930",
+  "seed": 20260930,
+  "config": "configs/biggrid50v2.yaml",
+  "config_sha256": "880dcd67acc9f233ef9bfa9a0ba014d9ddf7a4d4c6d01f4cdfba69494c57f4b1",
+  "deterministic": "re-running with the same --seed writes a byte-identical config; grids, goals, slips, view radii and bands never change",
+  "env": {
+    "size": 50,
+    "gamma": 0.99,
+    "max_steps": 160,
+    "goal_in_obs": true,
+    "obstacle_seed": 20260930,
+    "reward_mode": "goal_time",
+    "shape_w": 0.05,
+    "wall_death": true,
+    "view_max": 5,
+    "slip_wall_penalty": 0.0
+  },
+  "axes": {
+    "obstacle_density": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3
+    ],
+    "slip": [
+      0.01,
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ],
+    "view_radius": [
+      3,
+      4,
+      5
+    ],
+    "start_band": [
+      [
+        5,
+        15
+      ],
+      [
+        15,
+        30
+      ],
+      [
+        30,
+        45
+      ],
+      [
+        45,
+        60
+      ],
+      [
+        60,
+        80
+      ]
+    ]
+  },
+  "axis_independence": {
+    "worst_pairwise_r_on_levels": 0.192,
+    "realised_correlations": {
+      "density vs slip": 0.055,
+      "density vs mean path": -0.044,
+      "density vs view": -0.06,
+      "density vs spawn cells": -0.144,
+      "slip vs mean path": -0.026,
+      "slip vs view": -0.075,
+      "slip vs spawn cells": 0.009,
+      "mean path vs view": 0.198,
+      "mean path vs spawn cells": -0.351,
+      "view vs spawn cells": 0.005
+    }
+  },
+  "replaced_tasks": {
+    "tasks": [
+      20,
+      21,
+      28,
+      33
+    ],
+    "why": "no specialist reached 0.6 on these instances even with the slip-penalty fix; regenerated at the gentlest density and slip so every shipped task is learnable"
+  },
+  "n_tasks": 50,
+  "validation": {
+    "rule": "95th-percentile collision-free shortest path from a spawnable cell in the band must fit in half the episode horizon, and the band must hold at least MIN_SPAWN_IN_BAND cells",
+    "horizon": 160,
+    "limit": 80,
+    "min_spawn_in_band": 40,
+    "worst_case_shortest_path": 80
+  },
+  "tasks": [
+    {
+      "task": 1,
+      "goal": [
+        12,
+        40
+      ],
+      "slip": 0.08,
+      "density": 0.25,
+      "view": 4,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 558,
+      "reachable": 1857,
+      "blocked": 625,
+      "mean_d": 22.672043010752688,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 2,
+      "goal": [
+        14,
+        29
+      ],
+      "slip": 0.1,
+      "density": 0.05,
+      "view": 3,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 774,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 36.39664082687339,
+      "p95_d": 44.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 3,
+      "goal": [
+        37,
+        22
+      ],
+      "slip": 0.01,
+      "density": 0.25,
+      "view": 3,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 320,
+      "reachable": 1856,
+      "blocked": 625,
+      "mean_d": 11.00625,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 4,
+      "goal": [
+        17,
+        8
+      ],
+      "slip": 0.02,
+      "density": 0.25,
+      "view": 5,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 622,
+      "reachable": 1844,
+      "blocked": 625,
+      "mean_d": 23.0,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 5,
+      "goal": [
+        41,
+        10
+      ],
+      "slip": 0.02,
+      "density": 0.15,
+      "view": 4,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 582,
+      "reachable": 2123,
+      "blocked": 375,
+      "mean_d": 22.95876288659794,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 6,
+      "goal": [
+        13,
+        43
+      ],
+      "slip": 0.08,
+      "density": 0.2,
+      "view": 3,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 173,
+      "reachable": 1995,
+      "blocked": 500,
+      "mean_d": 66.26589595375722,
+      "p95_d": 75.0,
+      "max_d": 79,
+      "min_d": 60
+    },
+    {
+      "task": 7,
+      "goal": [
+        9,
+        46
+      ],
+      "slip": 0.04,
+      "density": 0.25,
+      "view": 5,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 266,
+      "reachable": 1859,
+      "blocked": 625,
+      "mean_d": 67.69172932330827,
+      "p95_d": 78.0,
+      "max_d": 80,
+      "min_d": 60
+    },
+    {
+      "task": 8,
+      "goal": [
+        18,
+        34
+      ],
+      "slip": 0.02,
+      "density": 0.1,
+      "view": 5,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 223,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 50.38116591928251,
+      "p95_d": 58.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 9,
+      "goal": [
+        17,
+        26
+      ],
+      "slip": 0.01,
+      "density": 0.25,
+      "view": 5,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 880,
+      "reachable": 1859,
+      "blocked": 625,
+      "mean_d": 22.96931818181818,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 10,
+      "goal": [
+        45,
+        12
+      ],
+      "slip": 0.02,
+      "density": 0.2,
+      "view": 4,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 423,
+      "reachable": 1995,
+      "blocked": 500,
+      "mean_d": 51.170212765957444,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 11,
+      "goal": [
+        39,
+        20
+      ],
+      "slip": 0.06,
+      "density": 0.15,
+      "view": 3,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 41,
+      "reachable": 2121,
+      "blocked": 375,
+      "mean_d": 62.609756097560975,
+      "p95_d": 67.0,
+      "max_d": 68,
+      "min_d": 60
+    },
+    {
+      "task": 12,
+      "goal": [
+        46,
+        3
+      ],
+      "slip": 0.04,
+      "density": 0.15,
+      "view": 3,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 402,
+      "reachable": 2122,
+      "blocked": 375,
+      "mean_d": 23.31094527363184,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 13,
+      "goal": [
+        15,
+        20
+      ],
+      "slip": 0.1,
+      "density": 0.3,
+      "view": 3,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 702,
+      "reachable": 1691,
+      "blocked": 750,
+      "mean_d": 22.8988603988604,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 14,
+      "goal": [
+        25,
+        5
+      ],
+      "slip": 0.01,
+      "density": 0.15,
+      "view": 3,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 286,
+      "reachable": 2122,
+      "blocked": 375,
+      "mean_d": 10.632867132867133,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 15,
+      "goal": [
+        47,
+        41
+      ],
+      "slip": 0.06,
+      "density": 0.25,
+      "view": 4,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 559,
+      "reachable": 1867,
+      "blocked": 625,
+      "mean_d": 37.826475849731665,
+      "p95_d": 45.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 16,
+      "goal": [
+        44,
+        47
+      ],
+      "slip": 0.1,
+      "density": 0.1,
+      "view": 4,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 173,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 10.323699421965317,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 17,
+      "goal": [
+        18,
+        22
+      ],
+      "slip": 0.01,
+      "density": 0.1,
+      "view": 3,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 1101,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 22.807447774750226,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 18,
+      "goal": [
+        22,
+        25
+      ],
+      "slip": 0.04,
+      "density": 0.05,
+      "view": 4,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 411,
+      "reachable": 2373,
+      "blocked": 125,
+      "mean_d": 11.077858880778589,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 19,
+      "goal": [
+        3,
+        42
+      ],
+      "slip": 0.01,
+      "density": 0.15,
+      "view": 4,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 322,
+      "reachable": 2121,
+      "blocked": 375,
+      "mean_d": 68.14285714285714,
+      "p95_d": 78.0,
+      "max_d": 80,
+      "min_d": 60
+    },
+    {
+      "task": 20,
+      "goal": [
+        35,
+        8
+      ],
+      "slip": 0.01,
+      "density": 0.05,
+      "view": 4,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 438,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 51.162100456621005,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 21,
+      "goal": [
+        28,
+        27
+      ],
+      "slip": 0.01,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 767,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 35.78357235984355,
+      "p95_d": 44.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 22,
+      "goal": [
+        44,
+        15
+      ],
+      "slip": 0.01,
+      "density": 0.1,
+      "view": 5,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 165,
+      "reachable": 2248,
+      "blocked": 250,
+      "mean_d": 65.86666666666666,
+      "p95_d": 74.0,
+      "max_d": 78,
+      "min_d": 60
+    },
+    {
+      "task": 23,
+      "goal": [
+        32,
+        5
+      ],
+      "slip": 0.02,
+      "density": 0.05,
+      "view": 3,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 527,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 51.296015180265655,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 24,
+      "goal": [
+        30,
+        10
+      ],
+      "slip": 0.08,
+      "density": 0.1,
+      "view": 3,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 46,
+      "reachable": 2248,
+      "blocked": 250,
+      "mean_d": 62.84782608695652,
+      "p95_d": 68.0,
+      "max_d": 69,
+      "min_d": 60
+    },
+    {
+      "task": 25,
+      "goal": [
+        2,
+        25
+      ],
+      "slip": 0.04,
+      "density": 0.15,
+      "view": 5,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 151,
+      "reachable": 2122,
+      "blocked": 375,
+      "mean_d": 63.788079470198674,
+      "p95_d": 69.0,
+      "max_d": 72,
+      "min_d": 60
+    },
+    {
+      "task": 26,
+      "goal": [
+        6,
+        32
+      ],
+      "slip": 0.06,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 796,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 37.30778894472362,
+      "p95_d": 45.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 27,
+      "goal": [
+        44,
+        25
+      ],
+      "slip": 0.06,
+      "density": 0.3,
+      "view": 5,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 391,
+      "reachable": 1679,
+      "blocked": 750,
+      "mean_d": 51.50383631713555,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 28,
+      "goal": [
+        26,
+        45
+      ],
+      "slip": 0.01,
+      "density": 0.05,
+      "view": 3,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 120,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 63.266666666666666,
+      "p95_d": 68.05,
+      "max_d": 71,
+      "min_d": 60
+    },
+    {
+      "task": 29,
+      "goal": [
+        5,
+        45
+      ],
+      "slip": 0.06,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 590,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 51.69830508474576,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 30,
+      "goal": [
+        18,
+        11
+      ],
+      "slip": 0.08,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 893,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 22.61478163493841,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 31,
+      "goal": [
+        33,
+        31
+      ],
+      "slip": 0.02,
+      "density": 0.1,
+      "view": 3,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 393,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 11.030534351145038,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 32,
+      "goal": [
+        12,
+        3
+      ],
+      "slip": 0.01,
+      "density": 0.25,
+      "view": 4,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 415,
+      "reachable": 1864,
+      "blocked": 625,
+      "mean_d": 51.378313253012045,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 33,
+      "goal": [
+        25,
+        17
+      ],
+      "slip": 0.01,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 156,
+      "reachable": 2373,
+      "blocked": 125,
+      "mean_d": 48.82692307692308,
+      "p95_d": 55.0,
+      "max_d": 57,
+      "min_d": 45
+    },
+    {
+      "task": 34,
+      "goal": [
+        29,
+        33
+      ],
+      "slip": 0.02,
+      "density": 0.3,
+      "view": 4,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 283,
+      "reachable": 1703,
+      "blocked": 750,
+      "mean_d": 10.946996466431095,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 35,
+      "goal": [
+        6,
+        39
+      ],
+      "slip": 0.08,
+      "density": 0.15,
+      "view": 4,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 534,
+      "reachable": 2123,
+      "blocked": 375,
+      "mean_d": 22.94194756554307,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 36,
+      "goal": [
+        13,
+        10
+      ],
+      "slip": 0.08,
+      "density": 0.2,
+      "view": 5,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 111,
+      "reachable": 1995,
+      "blocked": 500,
+      "mean_d": 65.33333333333333,
+      "p95_d": 72.0,
+      "max_d": 75,
+      "min_d": 60
+    },
+    {
+      "task": 37,
+      "goal": [
+        26,
+        39
+      ],
+      "slip": 0.06,
+      "density": 0.1,
+      "view": 3,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 720,
+      "reachable": 2248,
+      "blocked": 250,
+      "mean_d": 36.94861111111111,
+      "p95_d": 44.049999999999955,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 38,
+      "goal": [
+        46,
+        35
+      ],
+      "slip": 0.1,
+      "density": 0.2,
+      "view": 5,
+      "band": [
+        60,
+        80
+      ],
+      "spawnable": 199,
+      "reachable": 1990,
+      "blocked": 500,
+      "mean_d": 66.95477386934674,
+      "p95_d": 76.0,
+      "max_d": 78,
+      "min_d": 60
+    },
+    {
+      "task": 39,
+      "goal": [
+        22,
+        4
+      ],
+      "slip": 0.04,
+      "density": 0.2,
+      "view": 4,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 697,
+      "reachable": 1979,
+      "blocked": 500,
+      "mean_d": 37.33859397417503,
+      "p95_d": 45.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 40,
+      "goal": [
+        39,
+        32
+      ],
+      "slip": 0.08,
+      "density": 0.1,
+      "view": 5,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 381,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 10.84251968503937,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 41,
+      "goal": [
+        23,
+        42
+      ],
+      "slip": 0.04,
+      "density": 0.05,
+      "view": 5,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 774,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 37.328165374677006,
+      "p95_d": 45.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 42,
+      "goal": [
+        27,
+        13
+      ],
+      "slip": 0.06,
+      "density": 0.05,
+      "view": 4,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 768,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 36.477864583333336,
+      "p95_d": 44.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 43,
+      "goal": [
+        33,
+        24
+      ],
+      "slip": 0.04,
+      "density": 0.15,
+      "view": 3,
+      "band": [
+        15,
+        30
+      ],
+      "spawnable": 1015,
+      "reachable": 2123,
+      "blocked": 375,
+      "mean_d": 22.652216748768474,
+      "p95_d": 30.0,
+      "max_d": 30,
+      "min_d": 15
+    },
+    {
+      "task": 44,
+      "goal": [
+        40,
+        38
+      ],
+      "slip": 0.06,
+      "density": 0.2,
+      "view": 4,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 285,
+      "reachable": 1994,
+      "blocked": 500,
+      "mean_d": 10.357894736842105,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 45,
+      "goal": [
+        39,
+        26
+      ],
+      "slip": 0.1,
+      "density": 0.05,
+      "view": 4,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 760,
+      "reachable": 2374,
+      "blocked": 125,
+      "mean_d": 36.90394736842105,
+      "p95_d": 44.0,
+      "max_d": 45,
+      "min_d": 30
+    },
+    {
+      "task": 46,
+      "goal": [
+        21,
+        36
+      ],
+      "slip": 0.02,
+      "density": 0.1,
+      "view": 4,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 396,
+      "reachable": 2249,
+      "blocked": 250,
+      "mean_d": 10.936868686868687,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 47,
+      "goal": [
+        15,
+        2
+      ],
+      "slip": 0.02,
+      "density": 0.25,
+      "view": 4,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 483,
+      "reachable": 1861,
+      "blocked": 625,
+      "mean_d": 51.45962732919255,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 48,
+      "goal": [
+        2,
+        5
+      ],
+      "slip": 0.08,
+      "density": 0.2,
+      "view": 3,
+      "band": [
+        5,
+        15
+      ],
+      "spawnable": 160,
+      "reachable": 1993,
+      "blocked": 500,
+      "mean_d": 10.63125,
+      "p95_d": 15.0,
+      "max_d": 15,
+      "min_d": 5
+    },
+    {
+      "task": 49,
+      "goal": [
+        6,
+        16
+      ],
+      "slip": 0.06,
+      "density": 0.15,
+      "view": 3,
+      "band": [
+        45,
+        60
+      ],
+      "spawnable": 433,
+      "reachable": 2119,
+      "blocked": 375,
+      "mean_d": 51.10161662817552,
+      "p95_d": 59.0,
+      "max_d": 60,
+      "min_d": 45
+    },
+    {
+      "task": 50,
+      "goal": [
+        37,
+        35
+      ],
+      "slip": 0.08,
+      "density": 0.3,
+      "view": 3,
+      "band": [
+        30,
+        45
+      ],
+      "spawnable": 559,
+      "reachable": 1678,
+      "blocked": 750,
+      "mean_d": 37.483005366726296,
+      "p95_d": 44.0,
+      "max_d": 45,
+      "min_d": 30
+    }
+  ]
+}

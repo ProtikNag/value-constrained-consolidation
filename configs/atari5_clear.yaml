@@ -1,0 +1,88 @@
+# CLEAR baseline, apples-to-apples with atari5.yaml (ours, min-max).
+# IDENTICAL to atari5.yaml in task order, thresholds, architecture, env params, and
+# all PPO hyperparameters. The ONLY deltas vs ours:
+#   * ppo.method: clear  (replay + policy/value cloning instead of the dual constraint)
+#   * frame-matched iter budget: our global phase re-simulates every past env each
+#     iter (k rollouts/iter), so ours spends ~30k env-rollout-equivalents. CLEAR does
+#     1 rollout/iter, so to EQUALIZE TOTAL ENVIRONMENT FRAMES it gets ~30k train iters
+#     (task1 1500 + 4 tasks x 7500). CLEAR early-stops at each threshold, so it may use
+#     fewer; the cap guarantees it never exceeds our frame budget.
+#   * clear_* buffer knobs (standard / equal buffer).
+experiment:
+  name: atari5_clear
+  seed: 0
+  results_dir: results
+  device: auto
+  log_every: 25
+env:
+  family: atari
+  params:
+    gamma: 0.99
+    max_steps: 0
+    frame_skip: 4
+    frame_stack: 4
+    noop_max: 50
+    terminal_on_life_loss: false
+    repeat_action_probability: 0.0
+    clip_rewards: true
+  tasks:
+  - game: Qbert
+    threshold: 4000
+  - game: Pong
+    threshold: 18
+  - game: Breakout
+    threshold: 80
+  - game: Boxing
+    threshold: 55
+  - game: SpaceInvaders
+    threshold: 800
+policy:
+  kind: impala_ac_multihead
+  hidden_sizes:
+  - 512
+  task_conditioned: false
+duals:
+  kind: projected_ascent
+  lr: 0.3
+  init: 0.0
+  max_value: 5.0
+  warm_start: false
+trainer:
+  kind: ppo
+  cycles_per_task: 1
+  eps: 0.04
+  eval_all_tasks: false
+ppo:
+  method: clear
+  async_envs: true
+  n_envs: 16
+  n_steps: 128
+  ppo_epochs: 3
+  num_minibatches: 4
+  clip_ratio: 0.1
+  gae_lambda: 0.95
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  lr: 0.0002
+  target_kl: 0.03
+  select_best_local: true
+  normalize_advantage: true
+  task1_iters: 1500
+  local_iters: 3463
+  global_iters: 3462
+  min_iters: 500
+  patience: 100000000        # disabled: spend the full frame-matched budget
+  stop_eval_every: 200
+  stop_eval_episodes: 3
+  eval_max_ep_steps: 10000
+  eval_noop_enumerate: false
+  eval_episodes: 100
+  eval_greedy: true
+  eval_greedy_episodes: 100
+  eval_seed: 100000
+  eval_every: 0
+  clear_policy_clone_cost: 0.01
+  clear_value_clone_cost: 0.005
+  clear_snapshot_batches: 4
+  clear_replay_task_per_step: 8

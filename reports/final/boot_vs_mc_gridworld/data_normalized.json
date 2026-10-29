@@ -1,0 +1,281 @@
+{
+  "_comment": "GridWorld 50-task min-max MC-vs-bootstrap ablation. PERF is NORMALIZED (0=random,1=expert-ceiling) via analysis.contract_metrics vs seed-matched sh_baseline -- SAME scale as the main experiment (reports/gridworld_sharedhead, sh_ours 0.596). Runs are the multi-head variant; GridWorld PERF is head-invariant (raw avg_perf multi-head 0.879 vs shared-head 0.884), so these transfer to shared-head. bias/speedup/break-even are metric-independent and carried from the raw run logs.",
+  "benchmark": "biggrid_50task, 3 seeds, PPO min-max, NORMALIZED PERF",
+  "per_setting": {
+    "mc": {
+      "PERF_normalized": [
+        0.5536,
+        0.0181
+      ],
+      "forgetting": [
+        0.1314,
+        0.0079
+      ],
+      "BWT": [
+        0.5276,
+        0.0241
+      ],
+      "seeds_PERF_norm": [
+        0.5777,
+        0.5341,
+        0.549
+      ],
+      "speedup_vs_mc": 1.0,
+      "t_mc_s": 0.13347
+    },
+    "bootH1": {
+      "PERF_normalized": [
+        0.5669,
+        0.0259
+      ],
+      "forgetting": [
+        0.1243,
+        0.0172
+      ],
+      "BWT": [
+        0.5779,
+        0.0408
+      ],
+      "seeds_PERF_norm": [
+        0.5717,
+        0.533,
+        0.596
+      ],
+      "speedup_vs_mc": 30.68,
+      "bias_boot_minus_mc": [
+        0.1225,
+        0.0468
+      ],
+      "t_boot_s": 0.00435,
+      "window_H": 1,
+      "boot_env_steps": 16,
+      "mc_env_steps": 0
+    },
+    "bootH3": {
+      "PERF_normalized": [
+        0.527,
+        0.0181
+      ],
+      "forgetting": [
+        0.1429,
+        0.0228
+      ],
+      "BWT": [
+        0.5399,
+        0.0185
+      ],
+      "seeds_PERF_norm": [
+        0.5327,
+        0.5459,
+        0.5026
+      ],
+      "speedup_vs_mc": 17.77,
+      "bias_boot_minus_mc": [
+        0.1262,
+        0.0473
+      ],
+      "t_boot_s": 0.00751,
+      "window_H": 3,
+      "boot_env_steps": 48,
+      "mc_env_steps": 0
+    },
+    "bootH5": {
+      "PERF_normalized": [
+        0.5644,
+        0.0105
+      ],
+      "forgetting": [
+        0.1158,
+        0.0146
+      ],
+      "BWT": [
+        0.5714,
+        0.0174
+      ],
+      "seeds_PERF_norm": [
+        0.55,
+        0.569,
+        0.5743
+      ],
+      "speedup_vs_mc": 16.53,
+      "bias_boot_minus_mc": [
+        0.1283,
+        0.048
+      ],
+      "t_boot_s": 0.00808,
+      "window_H": 5,
+      "boot_env_steps": 80,
+      "mc_env_steps": 0
+    },
+    "bootH10": {
+      "PERF_normalized": [
+        0.542,
+        0.0025
+      ],
+      "forgetting": [
+        0.1329,
+        0.0066
+      ],
+      "BWT": [
+        0.5482,
+        0.013
+      ],
+      "seeds_PERF_norm": [
+        0.5453,
+        0.5416,
+        0.5392
+      ],
+      "speedup_vs_mc": 10.15,
+      "bias_boot_minus_mc": [
+        0.1281,
+        0.0469
+      ],
+      "t_boot_s": 0.01315,
+      "window_H": 10,
+      "boot_env_steps": 160,
+      "mc_env_steps": 0
+    },
+    "bootH20": {
+      "PERF_normalized": [
+        0.5436,
+        0.0181
+      ],
+      "forgetting": [
+        0.1455,
+        0.0099
+      ],
+      "BWT": [
+        0.5519,
+        0.0259
+      ],
+      "seeds_PERF_norm": [
+        0.5479,
+        0.5195,
+        0.5634
+      ],
+      "speedup_vs_mc": 4.84,
+      "bias_boot_minus_mc": [
+        0.1175,
+        0.0435
+      ],
+      "t_boot_s": 0.0276,
+      "window_H": 20,
+      "boot_env_steps": 320,
+      "mc_env_steps": 0
+    },
+    "bootH40": {
+      "PERF_normalized": [
+        0.5542,
+        0.0245
+      ],
+      "forgetting": [
+        0.1297,
+        0.0164
+      ],
+      "BWT": [
+        0.563,
+        0.011
+      ],
+      "seeds_PERF_norm": [
+        0.5408,
+        0.5886,
+        0.5332
+      ],
+      "speedup_vs_mc": 2.67,
+      "bias_boot_minus_mc": [
+        0.1037,
+        0.0334
+      ],
+      "t_boot_s": 0.04993,
+      "window_H": 40,
+      "boot_env_steps": 640,
+      "mc_env_steps": 0
+    },
+    "bootH80": {
+      "PERF_normalized": [
+        0.5436,
+        0.0124
+      ],
+      "forgetting": [
+        0.1393,
+        0.0183
+      ],
+      "BWT": [
+        0.5421,
+        0.0128
+      ],
+      "seeds_PERF_norm": [
+        0.5263,
+        0.5553,
+        0.5491
+      ],
+      "speedup_vs_mc": 1.74,
+      "bias_boot_minus_mc": [
+        0.0723,
+        0.0249
+      ],
+      "t_boot_s": 0.07658,
+      "window_H": 80,
+      "boot_env_steps": 1280,
+      "mc_env_steps": 0
+    }
+  },
+  "break_even": {
+    "mc_PERF_norm": 0.5536,
+    "mc_PERF_norm_std": 0.0181,
+    "per_H": {
+      "bootH1": {
+        "H": 1,
+        "PERF_norm": 0.5669,
+        "delta_vs_mc": 0.0133,
+        "speedup": 30.68,
+        "within_1std_of_mc": true
+      },
+      "bootH3": {
+        "H": 3,
+        "PERF_norm": 0.527,
+        "delta_vs_mc": -0.0266,
+        "speedup": 17.77,
+        "within_1std_of_mc": false
+      },
+      "bootH5": {
+        "H": 5,
+        "PERF_norm": 0.5644,
+        "delta_vs_mc": 0.0108,
+        "speedup": 16.53,
+        "within_1std_of_mc": true
+      },
+      "bootH10": {
+        "H": 10,
+        "PERF_norm": 0.542,
+        "delta_vs_mc": -0.0116,
+        "speedup": 10.15,
+        "within_1std_of_mc": true
+      },
+      "bootH20": {
+        "H": 20,
+        "PERF_norm": 0.5436,
+        "delta_vs_mc": -0.01,
+        "speedup": 4.84,
+        "within_1std_of_mc": true
+      },
+      "bootH40": {
+        "H": 40,
+        "PERF_norm": 0.5542,
+        "delta_vs_mc": 0.0006,
+        "speedup": 2.67,
+        "within_1std_of_mc": true
+      },
+      "bootH80": {
+        "H": 80,
+        "PERF_norm": 0.5436,
+        "delta_vs_mc": -0.01,
+        "speedup": 1.74,
+        "within_1std_of_mc": true
+      }
+    },
+    "free_lunch_H": 1,
+    "note": "smallest H within 1 std of MC (normalized) = 1; all H within ~0.03 of MC"
+  },
+  "supersedes": "data.json (which reported RAW avg_performance ~0.87, not normalized)"
+}

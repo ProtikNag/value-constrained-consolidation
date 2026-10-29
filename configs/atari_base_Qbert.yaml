@@ -1,0 +1,76 @@
+experiment:
+  name: atari_base_Qbert
+  seed: 0
+  results_dir: results
+  device: auto
+  log_every: 25
+env:
+  family: atari
+  params:
+    gamma: 0.99
+    max_steps: 0
+    frame_skip: 4
+    frame_stack: 4
+    noop_max: 50
+    terminal_on_life_loss: false
+    repeat_action_probability: 0.0
+    clip_rewards: true
+  tasks:
+  - game: Qbert
+    threshold: 4260
+policy:
+  kind: impala_ac_multihead
+  hidden_sizes:
+  - 512
+  task_conditioned: false
+duals:
+  kind: projected_ascent
+  lr: 0.3
+  init: 0.0
+  max_value: 5.0
+  warm_start: false
+trainer:
+  kind: ppo
+  cycles_per_task: 1
+  eps: 0.04
+  eval_all_tasks: false
+ppo:
+  method: constrained
+  async_envs: true
+  n_envs: 16
+  n_steps: 128
+  ppo_epochs: 3
+  num_minibatches: 4
+  clip_ratio: 0.1
+  gae_lambda: 0.95
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  lr: 0.0002
+  target_kl: 0.03
+  select_best_local: true
+  normalize_advantage: true
+  task1_iters: 1500
+  local_iters: 3000
+  local_iters_per_task:
+    Pong: 1500
+    Breakout: 3000
+    Boxing: 4000
+    SpaceInvaders: 3000
+  global_iters: 2000
+  min_iters: 500
+  patience: 3
+  global_stop_all_tasks: true
+  global_retention_frac: 0.7
+  stop_eval_every: 200
+  stop_eval_episodes: 3
+  past_task_sampling: all
+  constraint_episodes: 16
+  constraint_every: 20
+  eval_max_ep_steps: 10000
+  eval_noop_enumerate: false
+  eval_episodes: 100
+  eval_greedy: true
+  eval_greedy_episodes: 100
+  eval_seed: 100000
+  eval_every: 200

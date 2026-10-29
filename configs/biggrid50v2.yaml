@@ -1,0 +1,587 @@
+# === BigGrid v2 -- GENERATED, do not hand-edit ===
+# python -m experiments.generate_biggrid_tasks --out configs/biggrid50v2.yaml
+#
+# goal_in_obs TRUE: the observation is the agent's position one-hot, the
+# GOAL's position one-hot, and an egocentric wall patch. Direction is
+# computable from the input; v2 hid the goal and the task became memory.
+# reward_mode goal_time: terminal bonus (1 - steps/max_steps) for REACHING
+# the goal, plus potential-based shaping. The shaping telescopes, so a
+# random policy nets ~0; it is path-independent, so detours cost nothing.
+# wall_death: entering a wall ENDS the episode.
+# view_radius: egocentric window, per task. The patch is always
+# (2*view_max+1)^2 so the input width is shared; narrower tasks leave the
+# surplus at 0, a third symbol distinct from 'free'.
+# start_band: spawns are restricted to this shortest-path distance band,
+# which makes PATH LENGTH the difficulty axis. Density is not one: walls
+# shrink the reachable region, so dense grids are easier.
+#
+# Every task validated solvable at generation (see the module docstring).
+experiment:
+  name: biggrid50v2
+  seed: 0
+  results_dir: results
+  device: auto
+  log_every: 50
+env:
+  family: biggrid
+  params:
+    size: 50
+    gamma: 0.99
+    max_steps: 160
+    goal_in_obs: true
+    obstacle_seed: 20260930
+    reward_mode: goal_time
+    shape_w: 0.05
+    wall_death: true
+    view_max: 5
+    slip_wall_penalty: 0.0
+  tasks:
+  - goal:
+    - 12
+    - 40
+    slip: 0.08
+    obstacle_density: 0.25
+    view_radius: 4
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 14
+    - 29
+    slip: 0.1
+    obstacle_density: 0.05
+    view_radius: 3
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 37
+    - 22
+    slip: 0.01
+    obstacle_density: 0.25
+    view_radius: 3
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 17
+    - 8
+    slip: 0.02
+    obstacle_density: 0.25
+    view_radius: 5
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 41
+    - 10
+    slip: 0.02
+    obstacle_density: 0.15
+    view_radius: 4
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 13
+    - 43
+    slip: 0.08
+    obstacle_density: 0.2
+    view_radius: 3
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 9
+    - 46
+    slip: 0.04
+    obstacle_density: 0.25
+    view_radius: 5
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 18
+    - 34
+    slip: 0.02
+    obstacle_density: 0.1
+    view_radius: 5
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 17
+    - 26
+    slip: 0.01
+    obstacle_density: 0.25
+    view_radius: 5
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 45
+    - 12
+    slip: 0.02
+    obstacle_density: 0.2
+    view_radius: 4
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 39
+    - 20
+    slip: 0.06
+    obstacle_density: 0.15
+    view_radius: 3
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 46
+    - 3
+    slip: 0.04
+    obstacle_density: 0.15
+    view_radius: 3
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 15
+    - 20
+    slip: 0.1
+    obstacle_density: 0.3
+    view_radius: 3
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 25
+    - 5
+    slip: 0.01
+    obstacle_density: 0.15
+    view_radius: 3
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 47
+    - 41
+    slip: 0.06
+    obstacle_density: 0.25
+    view_radius: 4
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 44
+    - 47
+    slip: 0.1
+    obstacle_density: 0.1
+    view_radius: 4
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 18
+    - 22
+    slip: 0.01
+    obstacle_density: 0.1
+    view_radius: 3
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 22
+    - 25
+    slip: 0.04
+    obstacle_density: 0.05
+    view_radius: 4
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 3
+    - 42
+    slip: 0.01
+    obstacle_density: 0.15
+    view_radius: 4
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 35
+    - 8
+    slip: 0.01
+    obstacle_density: 0.05
+    view_radius: 4
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 28
+    - 27
+    slip: 0.01
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 44
+    - 15
+    slip: 0.01
+    obstacle_density: 0.1
+    view_radius: 5
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 32
+    - 5
+    slip: 0.02
+    obstacle_density: 0.05
+    view_radius: 3
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 30
+    - 10
+    slip: 0.08
+    obstacle_density: 0.1
+    view_radius: 3
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 2
+    - 25
+    slip: 0.04
+    obstacle_density: 0.15
+    view_radius: 5
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 6
+    - 32
+    slip: 0.06
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 44
+    - 25
+    slip: 0.06
+    obstacle_density: 0.3
+    view_radius: 5
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 26
+    - 45
+    slip: 0.01
+    obstacle_density: 0.05
+    view_radius: 3
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 5
+    - 45
+    slip: 0.06
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 18
+    - 11
+    slip: 0.08
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 33
+    - 31
+    slip: 0.02
+    obstacle_density: 0.1
+    view_radius: 3
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 12
+    - 3
+    slip: 0.01
+    obstacle_density: 0.25
+    view_radius: 4
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 25
+    - 17
+    slip: 0.01
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 29
+    - 33
+    slip: 0.02
+    obstacle_density: 0.3
+    view_radius: 4
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 6
+    - 39
+    slip: 0.08
+    obstacle_density: 0.15
+    view_radius: 4
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 13
+    - 10
+    slip: 0.08
+    obstacle_density: 0.2
+    view_radius: 5
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 26
+    - 39
+    slip: 0.06
+    obstacle_density: 0.1
+    view_radius: 3
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 46
+    - 35
+    slip: 0.1
+    obstacle_density: 0.2
+    view_radius: 5
+    start_band:
+    - 60
+    - 80
+    threshold: 0.6
+  - goal:
+    - 22
+    - 4
+    slip: 0.04
+    obstacle_density: 0.2
+    view_radius: 4
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 39
+    - 32
+    slip: 0.08
+    obstacle_density: 0.1
+    view_radius: 5
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 23
+    - 42
+    slip: 0.04
+    obstacle_density: 0.05
+    view_radius: 5
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 27
+    - 13
+    slip: 0.06
+    obstacle_density: 0.05
+    view_radius: 4
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 33
+    - 24
+    slip: 0.04
+    obstacle_density: 0.15
+    view_radius: 3
+    start_band:
+    - 15
+    - 30
+    threshold: 0.6
+  - goal:
+    - 40
+    - 38
+    slip: 0.06
+    obstacle_density: 0.2
+    view_radius: 4
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 39
+    - 26
+    slip: 0.1
+    obstacle_density: 0.05
+    view_radius: 4
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+  - goal:
+    - 21
+    - 36
+    slip: 0.02
+    obstacle_density: 0.1
+    view_radius: 4
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 15
+    - 2
+    slip: 0.02
+    obstacle_density: 0.25
+    view_radius: 4
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 2
+    - 5
+    slip: 0.08
+    obstacle_density: 0.2
+    view_radius: 3
+    start_band:
+    - 5
+    - 15
+    threshold: 0.6
+  - goal:
+    - 6
+    - 16
+    slip: 0.06
+    obstacle_density: 0.15
+    view_radius: 3
+    start_band:
+    - 45
+    - 60
+    threshold: 0.6
+  - goal:
+    - 37
+    - 35
+    slip: 0.08
+    obstacle_density: 0.3
+    view_radius: 3
+    start_band:
+    - 30
+    - 45
+    threshold: 0.6
+policy:
+  kind: mlp_ac
+  hidden_sizes:
+  - 64
+  task_conditioned: true
+duals:
+  kind: projected_ascent
+  lr: 0.3
+  init: 0.0
+  max_value: 5.0
+  warm_start: false
+trainer:
+  kind: ppo
+  cycles_per_task: 1
+  eps: 0.04
+  eval_all_tasks: false
+ppo:
+  method: constrained
+  async_envs: false
+  n_envs: 16
+  n_steps: 64
+  ppo_epochs: 4
+  num_minibatches: 4
+  clip_ratio: 0.2
+  gae_lambda: 0.95
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  lr: 0.00025
+  select_best_local: true
+  normalize_advantage: true
+  task1_iters: 300
+  local_iters: 250
+  global_iters: 250
+  min_iters: 50
+  patience: 3
+  global_stop_all_tasks: true
+  global_retention_frac: 0.7
+  stop_eval_every: 50
+  stop_eval_episodes: 10
+  past_task_sampling: sample
+  constraint_episodes: 16
+  constraint_every: 5
+  eval_episodes: 30
+  eval_greedy: true
+  eval_greedy_episodes: 30
+  eval_seed: 100000
+  eval_every: 10
+  value_mode: mc
