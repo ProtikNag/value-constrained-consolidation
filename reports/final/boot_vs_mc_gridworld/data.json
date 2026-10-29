@@ -1,0 +1,351 @@
+{
+ "_comment": "GridWorld 50-task min-max: MC vs windowed-bootstrap constraint value estimation. 3 seeds. PERF=avg final success; BWT/forgetting standard. bias=V_boot-V_mc (MC~unbiased ref); speedup=t_mc(full-episode)/t_boot(H-step). FWT NOT computed (no from-scratch baseline for GridWorld).",
+ "benchmark": "biggrid_50task (50-task shared-head GridWorld), 3 seeds, PPO min-max",
+ "FWT": "NOT computed for GridWorld \u2014 FWT needs a from-scratch single-task baseline curve which this sweep does not have.",
+ "mc_ref_t_per_check_s": 0.13347,
+ "per_setting": {
+  "mc": {
+   "PERF": [
+    0.8714,
+    0.0061
+   ],
+   "BWT": [
+    0.1393,
+    0.0044
+   ],
+   "forgetting": [
+    0.0348,
+    0.0029
+   ],
+   "V_mc": [
+    0.716,
+    0.057
+   ],
+   "seeds_PERF": [
+    0.8793,
+    0.8645,
+    0.8703
+   ],
+   "speedup_vs_mc": 1.0,
+   "t_mc_s": 0.13347,
+   "note": "MC baseline: full-episode constraint; window_H default only affects the side-diagnostic"
+  },
+  "bootH1": {
+   "PERF": [
+    0.8729,
+    0.0085
+   ],
+   "BWT": [
+    0.1541,
+    0.0086
+   ],
+   "forgetting": [
+    0.034,
+    0.0054
+   ],
+   "V_mc": [
+    0.715,
+    0.0582
+   ],
+   "seeds_PERF": [
+    0.8748,
+    0.8616,
+    0.8822
+   ],
+   "window_H": 1,
+   "V_boot": [
+    0.8375,
+    0.0425
+   ],
+   "bias_boot_minus_mc": [
+    0.1225,
+    0.0468
+   ],
+   "t_boot_s": 0.00435,
+   "speedup_vs_mc": 30.68,
+   "mc_env_steps": 0,
+   "boot_env_steps": 16
+  },
+  "bootH3": {
+   "PERF": [
+    0.8624,
+    0.0041
+   ],
+   "BWT": [
+    0.144,
+    0.0033
+   ],
+   "forgetting": [
+    0.0396,
+    0.0054
+   ],
+   "V_mc": [
+    0.7148,
+    0.0589
+   ],
+   "seeds_PERF": [
+    0.866,
+    0.8646,
+    0.8567
+   ],
+   "window_H": 3,
+   "V_boot": [
+    0.841,
+    0.0412
+   ],
+   "bias_boot_minus_mc": [
+    0.1262,
+    0.0473
+   ],
+   "t_boot_s": 0.00751,
+   "speedup_vs_mc": 17.77,
+   "mc_env_steps": 0,
+   "boot_env_steps": 48
+  },
+  "bootH5": {
+   "PERF": [
+    0.8731,
+    0.0027
+   ],
+   "BWT": [
+    0.1529,
+    0.0042
+   ],
+   "forgetting": [
+    0.0321,
+    0.0035
+   ],
+   "V_mc": [
+    0.7139,
+    0.0594
+   ],
+   "seeds_PERF": [
+    0.8699,
+    0.8729,
+    0.8764
+   ],
+   "window_H": 5,
+   "V_boot": [
+    0.8421,
+    0.0398
+   ],
+   "bias_boot_minus_mc": [
+    0.1283,
+    0.048
+   ],
+   "t_boot_s": 0.00808,
+   "speedup_vs_mc": 16.53,
+   "mc_env_steps": 0,
+   "boot_env_steps": 80
+  },
+  "bootH10": {
+   "PERF": [
+    0.8667,
+    0.0012
+   ],
+   "BWT": [
+    0.1466,
+    0.0011
+   ],
+   "forgetting": [
+    0.0359,
+    0.0005
+   ],
+   "V_mc": [
+    0.7129,
+    0.0589
+   ],
+   "seeds_PERF": [
+    0.868,
+    0.867,
+    0.8651
+   ],
+   "window_H": 10,
+   "V_boot": [
+    0.841,
+    0.0444
+   ],
+   "bias_boot_minus_mc": [
+    0.1281,
+    0.0469
+   ],
+   "t_boot_s": 0.01315,
+   "speedup_vs_mc": 10.15,
+   "mc_env_steps": 0,
+   "boot_env_steps": 160
+  },
+  "bootH20": {
+   "PERF": [
+    0.8677,
+    0.0055
+   ],
+   "BWT": [
+    0.1481,
+    0.003
+   ],
+   "forgetting": [
+    0.0389,
+    0.0028
+   ],
+   "V_mc": [
+    0.7145,
+    0.0586
+   ],
+   "seeds_PERF": [
+    0.8693,
+    0.8603,
+    0.8736
+   ],
+   "window_H": 20,
+   "V_boot": [
+    0.832,
+    0.0404
+   ],
+   "bias_boot_minus_mc": [
+    0.1175,
+    0.0435
+   ],
+   "t_boot_s": 0.0276,
+   "speedup_vs_mc": 4.84,
+   "mc_env_steps": 0,
+   "boot_env_steps": 320
+  },
+  "bootH40": {
+   "PERF": [
+    0.8705,
+    0.0049
+   ],
+   "BWT": [
+    0.1512,
+    0.006
+   ],
+   "forgetting": [
+    0.0347,
+    0.0034
+   ],
+   "V_mc": [
+    0.7141,
+    0.0595
+   ],
+   "seeds_PERF": [
+    0.8675,
+    0.8774,
+    0.8666
+   ],
+   "window_H": 40,
+   "V_boot": [
+    0.8178,
+    0.04
+   ],
+   "bias_boot_minus_mc": [
+    0.1037,
+    0.0334
+   ],
+   "t_boot_s": 0.04993,
+   "speedup_vs_mc": 2.67,
+   "mc_env_steps": 0,
+   "boot_env_steps": 640
+  },
+  "bootH80": {
+   "PERF": [
+    0.8684,
+    0.0022
+   ],
+   "BWT": [
+    0.1464,
+    0.0024
+   ],
+   "forgetting": [
+    0.037,
+    0.0035
+   ],
+   "V_mc": [
+    0.7137,
+    0.0594
+   ],
+   "seeds_PERF": [
+    0.8653,
+    0.8703,
+    0.8696
+   ],
+   "window_H": 80,
+   "V_boot": [
+    0.786,
+    0.0443
+   ],
+   "bias_boot_minus_mc": [
+    0.0723,
+    0.0249
+   ],
+   "t_boot_s": 0.07658,
+   "speedup_vs_mc": 1.74,
+   "mc_env_steps": 0,
+   "boot_env_steps": 1280
+  }
+ },
+ "break_even": {
+  "mc_PERF": 0.8714,
+  "mc_PERF_std": 0.0061,
+  "per_H": {
+   "bootH1": {
+    "H": 1,
+    "PERF": 0.8729,
+    "delta_PERF_vs_mc": 0.0015,
+    "speedup": 30.68,
+    "within_1std_of_mc": true,
+    "beats_mc": true
+   },
+   "bootH3": {
+    "H": 3,
+    "PERF": 0.8624,
+    "delta_PERF_vs_mc": -0.009,
+    "speedup": 17.77,
+    "within_1std_of_mc": false,
+    "beats_mc": false
+   },
+   "bootH5": {
+    "H": 5,
+    "PERF": 0.8731,
+    "delta_PERF_vs_mc": 0.0017,
+    "speedup": 16.53,
+    "within_1std_of_mc": true,
+    "beats_mc": true
+   },
+   "bootH10": {
+    "H": 10,
+    "PERF": 0.8667,
+    "delta_PERF_vs_mc": -0.0047,
+    "speedup": 10.15,
+    "within_1std_of_mc": true,
+    "beats_mc": false
+   },
+   "bootH20": {
+    "H": 20,
+    "PERF": 0.8677,
+    "delta_PERF_vs_mc": -0.0037,
+    "speedup": 4.84,
+    "within_1std_of_mc": true,
+    "beats_mc": false
+   },
+   "bootH40": {
+    "H": 40,
+    "PERF": 0.8705,
+    "delta_PERF_vs_mc": -0.0009,
+    "speedup": 2.67,
+    "within_1std_of_mc": true,
+    "beats_mc": false
+   },
+   "bootH80": {
+    "H": 80,
+    "PERF": 0.8684,
+    "delta_PERF_vs_mc": -0.003,
+    "speedup": 1.74,
+    "within_1std_of_mc": true,
+    "beats_mc": false
+   }
+  },
+  "free_lunch_H": 80,
+  "free_lunch_note": "smallest H (max speedup) whose PERF is within 1 std of MC = 1",
+  "max_speedup_within_1std": "H=1 at 30.68x"
+ }
+}

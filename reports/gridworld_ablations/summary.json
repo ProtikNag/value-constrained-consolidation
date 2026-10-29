@@ -1,0 +1,354 @@
+{
+  "experiment": "GridWorld 10-task, single seed, reduced budget (DUEL)",
+  "caveats": "Single-seed, length-10, reduced budget. Directional, not full-scale. Compare WITHIN each experiment only; the ablation and the sweep used different local budgets.",
+  "constraint_ablation": {
+    "note": "Only difference between the two runs is duals.max_value (5.0 vs 0.0); mu=0 pins the current-task floor off.",
+    "con": {
+      "label": "constraint ON (mu free)",
+      "PERF": 0.6104,
+      "BWT": 0.1278,
+      "forgetting": 0.0825,
+      "norm_matrix": [
+        [
+          0.5886,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.7516,
+          0.4945,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9643,
+          0.9581,
+          0.6574,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9644,
+          0.9591,
+          0.9848,
+          0.643,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9699,
+          0.95,
+          0.5842,
+          0.8544,
+          0.9928,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9719,
+          0.9545,
+          0.9956,
+          0.9626,
+          0.1347,
+          0.9121,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9785,
+          0.9523,
+          0.9949,
+          0.9619,
+          0.9951,
+          0.902,
+          0.0028,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9779,
+          0.5619,
+          0.9996,
+          0.9931,
+          0.3924,
+          0.9377,
+          -0.011,
+          0.6599,
+          null,
+          null
+        ],
+        [
+          0.9131,
+          0.9575,
+          0.9982,
+          0.9906,
+          0.9985,
+          0.8676,
+          0.0002,
+          0.0033,
+          -0.0,
+          null
+        ],
+        [
+          0.9732,
+          0.9644,
+          0.9989,
+          0.9627,
+          0.9986,
+          0.9363,
+          -0.0259,
+          -0.0157,
+          0.3088,
+          0.0031
+        ]
+      ],
+      "diagonal": [
+        0.5886,
+        0.4945,
+        0.6574,
+        0.643,
+        0.9928,
+        0.9121,
+        0.0028,
+        0.6599,
+        -0.0,
+        0.0031
+      ],
+      "final_row": [
+        0.9732,
+        0.9644,
+        0.9989,
+        0.9627,
+        0.9986,
+        0.9363,
+        -0.0259,
+        -0.0157,
+        0.3088,
+        0.0031
+      ]
+    },
+    "mu0": {
+      "label": "mu=0 (constraint OFF)",
+      "PERF": 0.3375,
+      "BWT": 0.272,
+      "forgetting": 0.0808,
+      "norm_matrix": [
+        [
+          0.9769,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9812,
+          0.0024,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9758,
+          0.0217,
+          -0.0006,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9719,
+          0.6929,
+          0.9968,
+          -0.0088,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9701,
+          0.7837,
+          0.9968,
+          0.3048,
+          -0.0074,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9791,
+          0.9241,
+          0.9968,
+          0.2895,
+          0.0008,
+          0.0001,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          0.981,
+          0.9572,
+          0.9982,
+          0.3622,
+          -0.0079,
+          0.0049,
+          -0.0193,
+          null,
+          null,
+          null
+        ],
+        [
+          0.9796,
+          0.9515,
+          0.998,
+          0.1609,
+          0.0001,
+          0.0027,
+          0.0009,
+          -0.0155,
+          null,
+          null
+        ],
+        [
+          0.9797,
+          0.9404,
+          0.9873,
+          0.9921,
+          -0.0007,
+          0.0711,
+          -0.0012,
+          -0.0346,
+          -0.0011,
+          null
+        ],
+        [
+          0.9815,
+          0.95,
+          0.9982,
+          0.3729,
+          0.0,
+          -0.0287,
+          0.0018,
+          0.0029,
+          0.0957,
+          0.0004
+        ]
+      ],
+      "diagonal": [
+        0.9769,
+        0.0024,
+        -0.0006,
+        -0.0088,
+        -0.0074,
+        0.0001,
+        -0.0193,
+        -0.0155,
+        -0.0011,
+        0.0004
+      ],
+      "final_row": [
+        0.9815,
+        0.95,
+        0.9982,
+        0.3729,
+        0.0,
+        -0.0287,
+        0.0018,
+        0.0029,
+        0.0957,
+        0.0004
+      ]
+    }
+  },
+  "gns_sweep": {
+    "note": "global_n_steps = global-consolidation PPO rollout depth. value_mode=mc and window_H held constant.",
+    "1": {
+      "global_n_steps": 1,
+      "PERF": 0.0009,
+      "BWT": -0.0364,
+      "forgetting": 0.0405,
+      "global_phase_wall_min": 6.87,
+      "collect_steps_per_iter": 32
+    },
+    "10": {
+      "global_n_steps": 10,
+      "PERF": 0.0576,
+      "BWT": 0.0281,
+      "forgetting": 0.1194,
+      "global_phase_wall_min": 15.42,
+      "collect_steps_per_iter": 320
+    },
+    "20": {
+      "global_n_steps": 20,
+      "PERF": 0.1689,
+      "BWT": -0.0336,
+      "forgetting": 0.1635,
+      "global_phase_wall_min": 24.06,
+      "collect_steps_per_iter": 640
+    },
+    "40": {
+      "global_n_steps": 40,
+      "PERF": 0.2796,
+      "BWT": 0.0605,
+      "forgetting": 0.1721,
+      "global_phase_wall_min": 39.12,
+      "collect_steps_per_iter": 1280
+    },
+    "80": {
+      "global_n_steps": 80,
+      "PERF": 0.4837,
+      "BWT": 0.1973,
+      "forgetting": 0.0253,
+      "global_phase_wall_min": 69.97,
+      "collect_steps_per_iter": 2560
+    }
+  }
+}

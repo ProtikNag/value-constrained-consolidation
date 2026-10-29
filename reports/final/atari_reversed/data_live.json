@@ -1,0 +1,65 @@
+{
+  "_comment": "Partial snapshot of the in-progress reversed-order Atari run (seed 0). Transcribed from the gitignored results/atari5_rev_*_seed0/eval_matrix.json + status.json on the cluster so viz can be built from a tracked source. eval_matrix[i] = greedy-100 scores on tasks 0..i AFTER finishing (local+consolidation) task i. Rows are lower-triangular and grow as tasks complete. Re-transcribe when the run advances.",
+  "snapshot_utc": "2026-09-18T05:41Z",
+  "order": ["SpaceInvaders", "Boxing", "Breakout", "Pong", "Qbert"],
+  "thresholds": {"SpaceInvaders": 900, "Boxing": 67, "Breakout": 285, "Pong": 20, "Qbert": 4260},
+  "random_scores": {"SpaceInvaders": 148.0, "Boxing": 0.1, "Breakout": 1.7, "Pong": -20.7, "Qbert": 163.9},
+  "_method_naming": "The cka_rl entry below is CKA-RL ONLY. It was previously labelled \"CLEAR / CKA-RL\", which led to it being read as the CLEAR run. CLEAR is a separate method and a separate run, joint-training run records, atari5_clear_order2_seed0, transcribed into reports/order_sensitivity/data.json as matrices.clear_reversed. Their final rows differ: CKA-RL [212.55, -15.46, 6.69, -21.0, 4420.5], CLEAR [505.85, 36.8, 23.9, 11.1, 15350.75].",
+  "notes": {
+    "breakout_local_peak": 396.0,
+    "breakout_ours_consolidated_diag": 77.57,
+    "value_vs_score": "Ours Breakout value-constraint shortfall reached ~0 yet the greedy diagonal fell 396->77.6 during consolidation: the documented value-vs-score mismatch. Retention of PAST tasks is strong (SI recovered 498.5->793.2, +BWT; Boxing held ~60).",
+    "cka_rl_boxing_collapse": "CKA-RL forgot Boxing catastrophically (90.5 -> -8.3 -> -22.5 -> -15.5, below random) and SI 641.5 -> 212.6. Only the last-learned Qbert (4420.5) survives.",
+    "breakout_recovery": "Ours Breakout recovered non-monotonically 77.6 (T2 diag) -> 144.5 (T3, after Pong consolidation). SI kept climbing 793.2 -> 874.4 (+BWT).",
+    "componet_plasticity": "CompoNet has zero forgetting by construction (frozen components, constant lower triangle) but failed late plasticity: Qbert 0.0 (never learned) and Breakout only 99.2 (threshold 285).",
+    "ours_final": "DONE 5/5. Final-row (after Qbert) normalized retention of prior-4: SI 0.817, Boxing 0.155, Breakout 0.825, Pong 0.943 -> mean 0.685. Qbert diag 5195.2 (>4260 thr, >4750 local). Breakout recovered non-monotonically 77.6->144.5->235.6. Boxing is the casualty (69->60->42.5->10.5).",
+    "ours_vs_baselines": "Normalized: prior-4 retention ours 0.685 vs CompoNet 0.828 (frozen, but Qbert 0.0) vs CKA-RL -0.034. all-5 mean: ours 0.794 vs CompoNet 0.655 vs CKA-RL 0.181. Ours is the only method that learns every task AND retains the past.",
+    "boxing_topup_ablation": "Post-hoc Boxing recovery from the final global was tried 3 ways and ALL discarded (net-negative): 10-iter pure (Boxing +2.3, Breakout -159/Qbert -1648, SI +625 = eval noise); 100-iter pure (Boxing +36 but Qbert -4424); 100-iter 40/60 Boxing/rest mix (Boxing +23.5, net -0.81 norm). Conclusion: a forgotten task can't be patched post-hoc without net loss -> motivates in-sequence best-checkpoint. Final matrix stands unchanged.",
+    "model_selection": "This run kept the FINAL (iter-2000 / early-stop) global per phase, NOT best-checkpoint (the global trainer had no best-ckpt at run time). Best-ckpt has since been added+verified for future runs."
+  },
+  "methods": {
+    "ours": {
+      "label": "DUEL (ours)",
+      "policy": "impala_ac_multihead",
+      "tasks_done": 5,
+      "done": true,
+      "eval_matrix": [
+        [1318.10],
+        [498.50, 68.67],
+        [793.20, 59.76, 77.57],
+        [874.40, 42.52, 144.48, 20.48],
+        [762.60, 10.50, 235.60, 17.70, 5195.20]
+      ],
+      "wall_s": 123176.5,
+      "frames_total": 121241600
+    },
+    "cka_rl": {
+      "label": "CKA-RL",
+      "tasks_done": 5,
+      "done": true,
+      "eval_matrix": [
+        [641.50],
+        [317.60, 90.51],
+        [204.60, -8.31, 65.26],
+        [203.95, -22.50, 5.34, 14.55],
+        [212.55, -15.46, 6.69, -21.00, 4420.50]
+      ],
+      "wall_s": 31991.7,
+      "frames_total": 97484800
+    },
+    "componet": {
+      "label": "CompoNet",
+      "tasks_done": 5,
+      "done": true,
+      "eval_matrix": [
+        [726.00],
+        [726.00, 80.40],
+        [726.00, 80.40, 99.15],
+        [726.00, 80.40, 99.15, 20.05],
+        [726.00, 80.40, 99.15, 20.05, 0.00]
+      ],
+      "wall_s": 81269.1,
+      "frames_total": 120422400
+    }
+  }
+}

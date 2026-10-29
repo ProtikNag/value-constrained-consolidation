@@ -31,24 +31,20 @@ VCC states it. When task `k` arrives:
 
 ---
 
-## Which branch holds what
+## What is where
 
-Each experiment lives on its own branch, cut from `main`. Check out the one you
-want and everything it needs is there.
+Everything is on one branch. Each experiment is a set of configs plus the run
+records it produced plus the script that draws its figures.
 
-| Branch | Contents |
-|---|---|
-| `main` | The library, the runner, the tests. Everything below builds on it. |
-| `data/gridworld-50` | The generator for the fifty-task GridWorld set, its seed manifest, and the generated task file. |
-| `experiment/setting-a-benchmark` | Setting A, the established benchmark. Run records and the table figure. See the caveat below. |
-| `experiment/setting-b-gridworld50` | Setting B, the fifty-task sequence. Configs for VCC and seven baselines, the environment-access ablation, run records, figures. |
-| `experiment/setting-c-atari` | Setting C, five heterogeneous Atari games. Configs, the per-game specialists, the reversed-order runs, figures. |
-| `experiment/ablations` | Constraint strength, consolidation depth, and the bootstrapped-versus-Monte-Carlo shortfall estimator. |
-| `experiment/landscape` | The value-parameter landscape figure: projection, trajectory capture, and surface rendering. |
-
-```
-git checkout experiment/setting-b-gridworld50
-```
+| Experiment | Configs | Records and figures |
+|---|---|---|
+| Setting A, the established benchmark | not runnable here, see the caveat below | `reports/final/cka_rl/` |
+| Setting B, fifty GridWorld tasks | `duel_v2_fix.yaml`, `biggrid50v2_*.yaml` | `reports/final/gridworld_v2/`, `reports/biggrid50v2/` |
+| Setting B, environment access | `biggrid50v2_*_env.yaml` | `reports/final/env_access_full/`, `reports/gridworld_env_access/` |
+| Setting C, five Atari games | `atari5*.yaml`, `atari_base_*.yaml` | `reports/final/atari_reversed/`, `reports/order_sensitivity/` |
+| Ablations | `abl_*.yaml`, `biggrid50_*.yaml`, `sweeps/` | `reports/final/ablation/`, `reports/final/boot_vs_mc_gridworld/`, `reports/gridworld_ablations/` |
+| Value-parameter landscape | `biggrid50v2.yaml` | `reports/final/landscape/` |
+| The fifty-task set itself | `biggrid50v2.yaml`, `biggrid50v2.manifest.json` | `data/biggrid50v2.npz` |
 
 ---
 
@@ -90,8 +86,6 @@ Useful flags:
 
 ### Setting B, the fifty-task GridWorld sequence
 
-On `experiment/setting-b-gridworld50`:
-
 `configs/biggrid50v2.yaml` is the *task set*, the fifty generated tasks and their
 parameters. It is not a method config. The method configs reference it through
 `env.params.dataset_npz`.
@@ -116,8 +110,6 @@ collects per method. What differs is how each one spends them.
 
 ### Setting C, five heterogeneous Atari games
 
-On `experiment/setting-c-atari`:
-
 ```bash
 python -m experiments.run --config configs/atari5.yaml --seed 0          # VCC
 python -m experiments.run --config configs/atari5_clear.yaml --seed 0
@@ -129,7 +121,7 @@ sensitivity check reported in the appendix.
 
 ### Ablations
 
-On `experiment/ablations`, the `abl_*.yaml` configs vary the constraint, and
+The `abl_*.yaml` configs vary the constraint, and
 `configs/sweeps/eps_grid.yaml` drives the budget sweep:
 
 ```bash
@@ -138,8 +130,6 @@ python -m experiments.sweep --base configs/biggrid50v2.yaml \
 ```
 
 ### Regenerating the task set
-
-On `data/gridworld-50`:
 
 ```bash
 python -m experiments.generate_biggrid_tasks --out configs/biggrid50v2.yaml --seed 20260930
@@ -270,7 +260,7 @@ comparison was produced by adding our method as a row inside the released
 codebase of the benchmark's authors, which uses their harness and their task
 definitions for the Space Invaders and Freeway mode sequences. The environment
 layer here has no mode parameter and cannot construct those sequences. What this
-branch carries is the output side in full: per-mode return files for all eight
+repository carries is the output side in full: per-mode return files for all eight
 Freeway modes and all ten Space Invaders modes, the phase summaries, the
 retention history, the transcribed benchmark table, and the script that draws
 the comparison. The Meta-World figures for the other methods are the published
@@ -279,7 +269,7 @@ reproduced inside that harness.
 
 ---
 
-## Layout
+## Source layout
 
 ```
 crl/                    the library
@@ -291,7 +281,10 @@ crl/                    the library
   policies/               MLP and CNN actor-critics, plus baseline architectures
   run_logging.py          the logging contract emitter
 experiments/            entry points: run.py, sweep.py, the task generator
-configs/                one YAML per experiment
-reports/                committed run records and the figure scripts
+configs/                one YAML per run, plus the generated task set
+data/                   the generated fifty-task file
+report/acviz.py         the shared plotting template every figure script imports
+reports/final/<name>/   a README, a figure script, and the records it reads
+reports/<run>/          committed run records, one directory per run
 tests/                  pytest suite
 ```

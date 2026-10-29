@@ -1,0 +1,73 @@
+{
+  "provenance": {
+    "seed": 0,
+    "eval": "greedy-100",
+    "net": "impala_ac_multihead (plain)",
+    "note": "Single seed. No error bars anywhere; none are invented.",
+    "sources": {
+      "v5_canonical": "results/atari5_v5_seed0/eval_matrix.json",
+      "v5_reversed": "results/atari5_v5_order2_seed0/eval_matrix.json",
+      "clear_canonical": "results/atari5_v5_clearA_equal_seed0/eval_matrix.json",
+      "clear_reversed": "joint-training run records, atari5_clear_order2_seed0/eval_matrix.json"
+    },
+    "why_cached": "results/ is gitignored and the reversed / CLEAR runs live only on the cluster. These numbers are transcribed from the eval matrices above so the figures rebuild anywhere."
+  },
+
+  "labels": {
+    "Qbert": "Q*bert",
+    "Pong": "Pong",
+    "Breakout": "Breakout",
+    "Boxing": "Boxing",
+    "SpaceInvaders": "Space Invaders"
+  },
+  "short_labels": {
+    "Qbert": "Q*bert",
+    "Pong": "Pong",
+    "Breakout": "Breakout",
+    "Boxing": "Boxing",
+    "SpaceInvaders": "SpaceInv"
+  },
+
+  "orders": {
+    "canonical": ["Qbert", "Pong", "Breakout", "Boxing", "SpaceInvaders"],
+    "reversed": ["SpaceInvaders", "Boxing", "Breakout", "Pong", "Qbert"]
+  },
+
+  "matrices": {
+    "v5_canonical": [
+      [4467.75, null, null, null, null],
+      [4145.50, 19.75, null, null, null],
+      [5448.00, 20.00, 90.45, null, null],
+      [729.00, 18.96, 44.08, 97.00, null],
+      [4075.00, 19.75, 51.81, -25.76, 765.85]
+    ],
+    "v5_reversed": [
+      [588.50, null, null, null, null],
+      [587.50, 96.85, null, null, null],
+      [595.50, 21.72, 293.58, null, null],
+      [702.40, 74.19, 156.73, 21.00, null],
+      [711.65, 55.44, 199.83, 21.00, 4270.25]
+    ],
+    "clear_canonical": [
+      [4375.00, null, null, null, null],
+      [4350.00, 21.00, null, null, null],
+      [4296.00, 21.00, 0.00, null, null],
+      [4306.00, 14.33, 30.85, 100.00, null],
+      [4350.00, 21.00, 0.00, 100.00, 800.00]
+    ],
+    "clear_reversed": [
+      [588.50, null, null, null, null],
+      [532.60, 100.00, null, null, null],
+      [484.80, 88.00, 303.63, null, null],
+      [529.90, 69.94, 54.92, 21.00, null],
+      [505.85, 36.80, 23.90, 11.10, 15350.75]
+    ]
+  },
+
+  "references": {
+    "_index": ["Qbert", "Pong", "Breakout", "Boxing", "SpaceInvaders"],
+    "local_canonical": [4467.8, 20.0, 132.7, 94.0, 1132.2],
+    "local_reversed": [4341.0, 21.0, 363.9, 98.9, 588.5],
+    "joint": [4261.5, 20.7, 285.4, 67.5, 905.8]
+  }
+}

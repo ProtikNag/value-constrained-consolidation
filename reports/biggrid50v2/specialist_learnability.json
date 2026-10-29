@@ -1,0 +1,765 @@
+[
+  {
+    "task": 1,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.25,
+    "slip": 0.08,
+    "view": 4,
+    "score": 0.9787557721138,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 2,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.1,
+    "view": 3,
+    "score": 0.9637406468391418,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 3,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.25,
+    "slip": 0.01,
+    "view": 3,
+    "score": 0.9996654391288757,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 4,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.25,
+    "slip": 0.02,
+    "view": 5,
+    "score": 0.97842937707901,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 5,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.15,
+    "slip": 0.02,
+    "view": 4,
+    "score": 0.9961135983467102,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 6,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.2,
+    "slip": 0.08,
+    "view": 3,
+    "score": 0.8885661959648132,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 7,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.25,
+    "slip": 0.04,
+    "view": 5,
+    "score": 0.7541311979293823,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 8,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.1,
+    "slip": 0.02,
+    "view": 5,
+    "score": 0.7993787527084351,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 9,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.25,
+    "slip": 0.01,
+    "view": 5,
+    "score": 0.9842202067375183,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 10,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.2,
+    "slip": 0.02,
+    "view": 4,
+    "score": 0.9956862926483154,
+    "outcomes": {
+      "goal": 11,
+      "timeout": 1
+    },
+    "learnable": true
+  },
+  {
+    "task": 11,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.15,
+    "slip": 0.06,
+    "view": 3,
+    "score": 0.8750465512275696,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 12,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.15,
+    "slip": 0.04,
+    "view": 3,
+    "score": 0.9916151165962219,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 13,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.3,
+    "slip": 0.1,
+    "view": 3,
+    "score": 0.8732364177703857,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 14,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.15,
+    "slip": 0.01,
+    "view": 3,
+    "score": 0.9993915557861328,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 15,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.25,
+    "slip": 0.06,
+    "view": 4,
+    "score": 0.9780458211898804,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 16,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.1,
+    "slip": 0.1,
+    "view": 4,
+    "score": 0.9598544836044312,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 17,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.1,
+    "slip": 0.01,
+    "view": 3,
+    "score": 0.9984442591667175,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 18,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.05,
+    "slip": 0.04,
+    "view": 4,
+    "score": 0.9984644651412964,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 19,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.15,
+    "slip": 0.01,
+    "view": 4,
+    "score": 0.7707521319389343,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 20,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.05,
+    "slip": 0.01,
+    "view": 4,
+    "score": 0.8025431036949158,
+    "outcomes": {
+      "goal": 9,
+      "timeout": 1,
+      "wall": 2
+    },
+    "learnable": true
+  },
+  {
+    "task": 21,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.01,
+    "view": 5,
+    "score": 0.2983698546886444,
+    "outcomes": {
+      "wall": 10,
+      "goal": 2
+    },
+    "learnable": false
+  },
+  {
+    "task": 22,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.1,
+    "slip": 0.01,
+    "view": 5,
+    "score": 1.0060750246047974,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 23,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.05,
+    "slip": 0.02,
+    "view": 3,
+    "score": 0.9964311122894287,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 24,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.1,
+    "slip": 0.08,
+    "view": 3,
+    "score": 0.9630380868911743,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 25,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.15,
+    "slip": 0.04,
+    "view": 5,
+    "score": 0.9649962186813354,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 26,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.06,
+    "view": 5,
+    "score": 0.9785283803939819,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 27,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.3,
+    "slip": 0.06,
+    "view": 5,
+    "score": 0.9092764258384705,
+    "outcomes": {
+      "goal": 11,
+      "timeout": 1
+    },
+    "learnable": true
+  },
+  {
+    "task": 28,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.05,
+    "slip": 0.01,
+    "view": 3,
+    "score": 1.00281822681427,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 29,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.05,
+    "slip": 0.06,
+    "view": 5,
+    "score": 0.9725350737571716,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 30,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.05,
+    "slip": 0.08,
+    "view": 5,
+    "score": 0.9856168627738953,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 31,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.1,
+    "slip": 0.02,
+    "view": 3,
+    "score": 0.9984838962554932,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 32,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.25,
+    "slip": 0.01,
+    "view": 4,
+    "score": 0.33537766337394714,
+    "outcomes": {
+      "wall": 6,
+      "goal": 6
+    },
+    "learnable": false
+  },
+  {
+    "task": 33,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.05,
+    "slip": 0.01,
+    "view": 5,
+    "score": 0.4688586890697479,
+    "outcomes": {
+      "wall": 8,
+      "goal": 4
+    },
+    "learnable": false
+  },
+  {
+    "task": 34,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.3,
+    "slip": 0.02,
+    "view": 4,
+    "score": 0.998158872127533,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 35,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.15,
+    "slip": 0.08,
+    "view": 4,
+    "score": 0.9820285439491272,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 36,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.2,
+    "slip": 0.08,
+    "view": 5,
+    "score": 0.8905615210533142,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 37,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.1,
+    "slip": 0.06,
+    "view": 3,
+    "score": 0.9508952498435974,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 38,
+    "band": [
+      60,
+      80
+    ],
+    "density": 0.2,
+    "slip": 0.1,
+    "view": 5,
+    "score": 0.8495458364486694,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 39,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.2,
+    "slip": 0.04,
+    "view": 4,
+    "score": 0.9679509997367859,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 40,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.1,
+    "slip": 0.08,
+    "view": 5,
+    "score": 0.9936726689338684,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 41,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.04,
+    "view": 5,
+    "score": 0.9244564771652222,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 42,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.06,
+    "view": 4,
+    "score": 0.8157809376716614,
+    "outcomes": {
+      "goal": 9,
+      "wall": 2,
+      "timeout": 1
+    },
+    "learnable": true
+  },
+  {
+    "task": 43,
+    "band": [
+      15,
+      30
+    ],
+    "density": 0.15,
+    "slip": 0.04,
+    "view": 3,
+    "score": 0.9940700531005859,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 44,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.2,
+    "slip": 0.06,
+    "view": 4,
+    "score": 0.9962570667266846,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 45,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.05,
+    "slip": 0.1,
+    "view": 4,
+    "score": 0.8723735809326172,
+    "outcomes": {
+      "goal": 11,
+      "wall": 1
+    },
+    "learnable": true
+  },
+  {
+    "task": 46,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.1,
+    "slip": 0.02,
+    "view": 4,
+    "score": 0.9990015625953674,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 47,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.25,
+    "slip": 0.02,
+    "view": 4,
+    "score": 0.531540036201477,
+    "outcomes": {
+      "goal": 10,
+      "wall": 2
+    },
+    "learnable": false
+  },
+  {
+    "task": 48,
+    "band": [
+      5,
+      15
+    ],
+    "density": 0.2,
+    "slip": 0.08,
+    "view": 3,
+    "score": 0.9936254024505615,
+    "outcomes": {
+      "goal": 12
+    },
+    "learnable": true
+  },
+  {
+    "task": 49,
+    "band": [
+      45,
+      60
+    ],
+    "density": 0.15,
+    "slip": 0.06,
+    "view": 3,
+    "score": 0.6802158951759338,
+    "outcomes": {
+      "goal": 9,
+      "wall": 3
+    },
+    "learnable": true
+  },
+  {
+    "task": 50,
+    "band": [
+      30,
+      45
+    ],
+    "density": 0.3,
+    "slip": 0.08,
+    "view": 3,
+    "score": 0.7858410477638245,
+    "outcomes": {
+      "goal": 9,
+      "timeout": 3
+    },
+    "learnable": true
+  }
+]

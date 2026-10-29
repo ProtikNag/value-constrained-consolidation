@@ -1,0 +1,872 @@
+{
+ "definition": "Forward Transfer (Continual World / CKA-RL, Wolczyk et al.): FWT_i = (AUC_i - AUC_i^b)/(1 - AUC_i^b), where AUC_i is the normalized area under task i's greedy-score learning curve during its own training phase in the continual run, and AUC_i^b is the same area for a from-scratch single-task baseline on task i. AUC is a step-weighted trapezoid of normalized performance p(t) over the phase window, divided by window length (equal-time average). The baseline curve is evaluated over the SAME iteration window [lo,hi] as the CL phase (linear interpolation at endpoints).",
+ "sequence_reversed": {
+  "task0": "SpaceInvaders",
+  "task1": "Boxing",
+  "task2": "Breakout",
+  "task3": "Pong",
+  "task4": "Qbert",
+  "note": "logs are 1-indexed: task1=SpaceInvaders ... task5=Qbert; mapping confirmed via config task order and eval_matrix diagonals"
+ },
+ "baseline_source": "From-scratch single-task PPO experts in experts/<Game>/train_log.csv (greedy_score column). True single-task from-scratch runs (init experts/_shared_init.pt, seed 0). results/atari5_joint_* are JOINT multi-task runs (all 5 games simultaneously) and were NOT used, because joint training is not a from-scratch single-task reference.",
+ "curve_sources": {
+  "ours": "results/atari5_rev_ours_seed0/logs.jsonl (phase=='local')",
+  "cka_rl": "results/atari5_rev_cka_rl_seed0/logs.jsonl (phase=='cka_rl')",
+  "componet": "results/atari5_rev_componet_seed0/logs.jsonl (phase=='componet')"
+ },
+ "single_seed": "seed0, no error bars",
+ "threshold_ceiling": {
+  "normalization": {
+   "formula": "p = clip((raw - random)/(ceiling - random), 0, 1)",
+   "random_scores_source": "crl/envs/atari.py RANDOM_SCORES",
+   "random_scores": {
+    "SpaceInvaders": 148.0,
+    "Boxing": 0.1,
+    "Breakout": 1.7,
+    "Pong": -20.7,
+    "Qbert": 163.9
+   },
+   "ceiling_source": "per-game threshold from configs/atari5_reversed.yaml",
+   "ceilings": {
+    "SpaceInvaders": 900.0,
+    "Boxing": 67.0,
+    "Breakout": 285.0,
+    "Pong": 20.0,
+    "Qbert": 4260.0
+   }
+  },
+  "per_method": {
+   "ours": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": null,
+      "AUC_b": null,
+      "FWT": null,
+      "note": "CL learning curve unavailable \u2014 ours run was RESUMED from task3, so SpaceInvaders/Boxing local phases were not logged in results/atari5_rev_ours_seed0/logs.jsonl"
+     },
+     "Boxing": {
+      "AUC": null,
+      "AUC_b": null,
+      "FWT": null,
+      "note": "CL learning curve unavailable \u2014 ours run was RESUMED from task3, so SpaceInvaders/Boxing local phases were not logged in results/atari5_rev_ours_seed0/logs.jsonl"
+     },
+     "Breakout": {
+      "AUC": 0.6119,
+      "AUC_b": 0.4739,
+      "cl_window_iters": [
+       599,
+       1799
+      ],
+      "n_cl_points": 7,
+      "cl_raw_first": 59.0,
+      "cl_raw_last": 396.0,
+      "FWT": 0.2624
+     },
+     "Pong": {
+      "AUC": 0.9939,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "cl_raw_first": 20.0,
+      "cl_raw_last": 21.0,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=0.9987, 1-AUC_b=0.0013<0.05); the Pong expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     },
+     "Qbert": {
+      "AUC": 1.0,
+      "AUC_b": 1.0,
+      "cl_window_iters": [
+       599,
+       999
+      ],
+      "n_cl_points": 3,
+      "cl_raw_first": 4300.0,
+      "cl_raw_last": 4750.0,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=1.0000, 1-AUC_b=0.0000<0.05); the Qbert expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     }
+    },
+    "mean_FWT": 0.2624,
+    "mean_FWT_over_games": [
+     "Breakout"
+    ]
+   },
+   "cka_rl": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": 0.342,
+      "AUC_b": 0.6949,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "cl_raw_first": 275.0,
+      "cl_raw_last": 473.3,
+      "FWT": -1.1569
+     },
+     "Boxing": {
+      "AUC": 0.791,
+      "AUC_b": 0.7049,
+      "cl_window_iters": [
+       599,
+       2599
+      ],
+      "n_cl_points": 11,
+      "cl_raw_first": 4.7,
+      "cl_raw_last": 99.3,
+      "FWT": 0.2917
+     },
+     "Breakout": {
+      "AUC": 0.0573,
+      "AUC_b": 0.7118,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "cl_raw_first": 4.3,
+      "cl_raw_last": 50.7,
+      "FWT": -2.2714
+     },
+     "Pong": {
+      "AUC": 0.7469,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "cl_raw_first": 19.0,
+      "cl_raw_last": 20.0,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=0.9987, 1-AUC_b=0.0013<0.05); the Pong expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     },
+     "Qbert": {
+      "AUC": 0.7778,
+      "AUC_b": 1.0,
+      "cl_window_iters": [
+       599,
+       1799
+      ],
+      "n_cl_points": 7,
+      "cl_raw_first": 800.0,
+      "cl_raw_last": 4425.0,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=1.0000, 1-AUC_b=0.0000<0.05); the Qbert expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     }
+    },
+    "mean_FWT": -1.0455,
+    "mean_FWT_over_games": [
+     "SpaceInvaders",
+     "Boxing",
+     "Breakout"
+    ]
+   },
+   "componet": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": 0.2983,
+      "AUC_b": 0.6949,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "cl_raw_first": 120.0,
+      "cl_raw_last": 515.0,
+      "FWT": -1.3002
+     },
+     "Boxing": {
+      "AUC": 0.4712,
+      "AUC_b": 0.6355,
+      "cl_window_iters": [
+       599,
+       2199
+      ],
+      "n_cl_points": 9,
+      "cl_raw_first": -6.3,
+      "cl_raw_last": 91.7,
+      "FWT": -0.4509
+     },
+     "Breakout": {
+      "AUC": 0.1022,
+      "AUC_b": 0.7118,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "cl_raw_first": 3.0,
+      "cl_raw_last": 69.0,
+      "FWT": -2.1154
+     },
+     "Pong": {
+      "AUC": 0.4389,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "cl_raw_first": -21.0,
+      "cl_raw_last": 20.7,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=0.9987, 1-AUC_b=0.0013<0.05); the Pong expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     },
+     "Qbert": {
+      "AUC": 0.0,
+      "AUC_b": 1.0,
+      "cl_window_iters": [
+       599,
+       4999
+      ],
+      "n_cl_points": 23,
+      "cl_raw_first": 0.0,
+      "cl_raw_last": 0.0,
+      "FWT": null,
+      "note": "FWT ill-conditioned: from-scratch baseline saturates the normalized ceiling (AUC_b=1.0000, 1-AUC_b=0.0000<0.05); the Qbert expert reaches p~1 before the CL comparison window begins (iter~599). FWT excluded from mean."
+     }
+    },
+    "mean_FWT": -1.2888,
+    "mean_FWT_over_games": [
+     "SpaceInvaders",
+     "Boxing",
+     "Breakout"
+    ]
+   }
+  }
+ },
+ "expert_ceiling": {
+  "normalization": {
+   "formula": "p = clip((raw - random)/(expert_best_greedy - random), 0, 1)",
+   "random_scores": {
+    "SpaceInvaders": 148.0,
+    "Boxing": 0.1,
+    "Breakout": 1.7,
+    "Pong": -20.7,
+    "Qbert": 163.9
+   },
+   "ceiling_source": "experts/<Game>/meta.json best_greedy (from-scratch single-task expert peak)",
+   "ceilings": {
+    "SpaceInvaders": 1078.55,
+    "Boxing": 71.86,
+    "Breakout": 278.56,
+    "Pong": 20.0,
+    "Qbert": 18000.0
+   }
+  },
+  "per_method": {
+   "ours": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": null,
+      "AUC_b": null,
+      "FWT": null,
+      "note": "CL curve unavailable (ours resumed from task3; SI/Boxing not logged)"
+     },
+     "Boxing": {
+      "AUC": null,
+      "AUC_b": null,
+      "FWT": null,
+      "note": "CL curve unavailable (ours resumed from task3; SI/Boxing not logged)"
+     },
+     "Breakout": {
+      "AUC": 0.6165,
+      "AUC_b": 0.4849,
+      "cl_window_iters": [
+       599,
+       1799
+      ],
+      "n_cl_points": 7,
+      "FWT": 0.2554
+     },
+     "Pong": {
+      "AUC": 0.9939,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "FWT": null,
+      "note": "ill-conditioned: 1-AUC_b=0.0013<0.05 (baseline saturates ceiling)"
+     },
+     "Qbert": {
+      "AUC": 0.2466,
+      "AUC_b": 0.2933,
+      "cl_window_iters": [
+       599,
+       999
+      ],
+      "n_cl_points": 3,
+      "FWT": -0.0661
+     }
+    },
+    "mean_FWT_all_defined": 0.0947,
+    "mean_FWT_games": [
+     "Breakout",
+     "Qbert"
+    ],
+    "matched_subset_mean_FWT": 0.0947
+   },
+   "cka_rl": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": 0.2764,
+      "AUC_b": 0.5696,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "FWT": -0.6812
+     },
+     "Boxing": {
+      "AUC": 0.7679,
+      "AUC_b": 0.6616,
+      "cl_window_iters": [
+       599,
+       2599
+      ],
+      "n_cl_points": 11,
+      "FWT": 0.3142
+     },
+     "Breakout": {
+      "AUC": 0.0586,
+      "AUC_b": 0.7257,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "FWT": -2.4324
+     },
+     "Pong": {
+      "AUC": 0.7469,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "FWT": null,
+      "note": "ill-conditioned: 1-AUC_b=0.0013<0.05 (baseline saturates ceiling)"
+     },
+     "Qbert": {
+      "AUC": 0.1806,
+      "AUC_b": 0.5843,
+      "cl_window_iters": [
+       599,
+       1799
+      ],
+      "n_cl_points": 7,
+      "FWT": -0.9709
+     }
+    },
+    "mean_FWT_all_defined": -0.9426,
+    "mean_FWT_games": [
+     "SpaceInvaders",
+     "Boxing",
+     "Breakout",
+     "Qbert"
+    ],
+    "matched_subset_mean_FWT": -1.7016
+   },
+   "componet": {
+    "per_task": {
+     "SpaceInvaders": {
+      "AUC": 0.2411,
+      "AUC_b": 0.5696,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "FWT": -0.7633
+     },
+     "Boxing": {
+      "AUC": 0.4549,
+      "AUC_b": 0.5925,
+      "cl_window_iters": [
+       599,
+       2199
+      ],
+      "n_cl_points": 9,
+      "FWT": -0.3377
+     },
+     "Breakout": {
+      "AUC": 0.1046,
+      "AUC_b": 0.7257,
+      "cl_window_iters": [
+       599,
+       2999
+      ],
+      "n_cl_points": 13,
+      "FWT": -2.2647
+     },
+     "Pong": {
+      "AUC": 0.4389,
+      "AUC_b": 0.9987,
+      "cl_window_iters": [
+       599,
+       1399
+      ],
+      "n_cl_points": 5,
+      "FWT": null,
+      "note": "ill-conditioned: 1-AUC_b=0.0013<0.05 (baseline saturates ceiling)"
+     },
+     "Qbert": {
+      "AUC": 0.0,
+      "AUC_b": 0.7914,
+      "cl_window_iters": [
+       599,
+       4999
+      ],
+      "n_cl_points": 23,
+      "FWT": -3.7945
+     }
+    },
+    "mean_FWT_all_defined": -1.79,
+    "mean_FWT_games": [
+     "SpaceInvaders",
+     "Boxing",
+     "Breakout",
+     "Qbert"
+    ],
+    "matched_subset_mean_FWT": -3.0296
+   },
+   "_matched_subset_games": [
+    "Breakout",
+    "Qbert"
+   ]
+  }
+ },
+ "gaps": [
+  "ours SpaceInvaders & Boxing CL curves missing (run resumed from task3) -> FWT unavailable for those",
+  "Pong FWT ill-conditioned under BOTH ceilings: expert ceiling=20.0 (==game max), baseline saturates p=1 before CL window -> null",
+  "single seed (seed0), no error bars"
+ ],
+ "fresh_baseline": {
+  "baseline_source": "results/atari_base_<Game>_seed0 (from-scratch single-task PPO, EXACT CL config: configs/atari_base_<Game>.yaml matches configs/atari5_reversed.yaml env+ppo settings; init experts/_shared_init.pt, seed 0). Learning curve = logs.jsonl rows with greedy_score!=None (fields step, greedy_score).",
+  "definition": "FWT_i = (AUC_i - AUC_i^b)/(1 - AUC_i^b). AUC = step-weighted-trapezoid mean of normalized p over the matched overlapping step-window [min_step,max_step] shared by the method curve and the fresh baseline curve (linear interpolation at endpoints). If (1-AUC_b) < 0.05 the FWT is set null (from-scratch baseline saturates the normalized ceiling).",
+  "curve_sources": {
+   "ours": "results/atari5_rev_ours_seed0/logs.jsonl (phase=='local'); only Breakout/Pong/Qbert (tasks 3,4,5) present -- run resumed from task3, SI/Boxing local phases NOT logged -> unavailable",
+   "cka_rl": "results/atari5_rev_cka_rl_seed0/logs.jsonl (phase=='cka_rl')",
+   "componet": "results/atari5_rev_componet_seed0/logs.jsonl (phase=='componet')"
+  },
+  "matched_subset_definition": "games ours has (Breakout/Pong/Qbert) that are non-degenerate (FWT defined for ours). Pong is degenerate under both ceilings -> matched subset = [Breakout, Qbert]; matched_subset_mean_FWT computed for ALL methods over the same games for apples-to-apples.",
+  "single_seed": "seed0, no error bars",
+  "ceilings_used": {
+   "threshold": {
+    "SpaceInvaders": 900.0,
+    "Boxing": 67.0,
+    "Breakout": 285.0,
+    "Pong": 20.0,
+    "Qbert": 4260.0
+   },
+   "expert_best_greedy": {
+    "SpaceInvaders": 1078.55,
+    "Boxing": 71.86,
+    "Breakout": 278.56,
+    "Pong": 20.0,
+    "Qbert": 18000.0
+   }
+  },
+  "threshold_ceiling": {
+   "normalization": {
+    "formula": "p = clip((raw - random)/(ceiling - random), 0, 1)",
+    "random_scores": {
+     "SpaceInvaders": 148.0,
+     "Boxing": 0.1,
+     "Breakout": 1.7,
+     "Pong": -20.7,
+     "Qbert": 163.9
+    },
+    "ceiling_source": "per-game threshold from configs/atari5_reversed.yaml",
+    "ceilings": {
+     "SpaceInvaders": 900.0,
+     "Boxing": 67.0,
+     "Breakout": 285.0,
+     "Pong": 20.0,
+     "Qbert": 4260.0
+    }
+   },
+   "matched_subset_games": [
+    "Breakout",
+    "Qbert"
+   ],
+   "per_method": {
+    "ours": {
+     "per_task": {
+      "Breakout": {
+       "AUC": 0.6119,
+       "AUC_b": 0.5262,
+       "cl_window_iters": [
+        599,
+        1799
+       ],
+       "n_cl_points": 7,
+       "FWT": 0.1809
+      },
+      "Pong": {
+       "AUC": 0.9877,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 1.0,
+       "AUC_b": 0.78,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": 1.0
+      }
+     },
+     "mean_FWT": 0.5905,
+     "mean_FWT_over_games": [
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": 0.5905
+    },
+    "cka_rl": {
+     "per_task": {
+      "SpaceInvaders": {
+       "AUC": 0.342,
+       "AUC_b": 0.539,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -0.4273
+      },
+      "Boxing": {
+       "AUC": 0.5285,
+       "AUC_b": 0.8518,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -2.1807
+      },
+      "Breakout": {
+       "AUC": 0.0573,
+       "AUC_b": 0.6936,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -2.0766
+      },
+      "Pong": {
+       "AUC": 0.7439,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 0.6668,
+       "AUC_b": 0.89,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -2.0291
+      }
+     },
+     "mean_FWT": -1.6784,
+     "mean_FWT_over_games": [
+      "SpaceInvaders",
+      "Boxing",
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": -2.0529
+    },
+    "componet": {
+     "per_task": {
+      "SpaceInvaders": {
+       "AUC": 0.2983,
+       "AUC_b": 0.539,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -0.5222
+      },
+      "Boxing": {
+       "AUC": 0.2015,
+       "AUC_b": 0.8518,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -4.387
+      },
+      "Breakout": {
+       "AUC": 0.1022,
+       "AUC_b": 0.6936,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -1.9299
+      },
+      "Pong": {
+       "AUC": 0.0805,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 0.0,
+       "AUC_b": 0.89,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -8.0898
+      }
+     },
+     "mean_FWT": -3.7322,
+     "mean_FWT_over_games": [
+      "SpaceInvaders",
+      "Boxing",
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": -5.0099
+    }
+   }
+  },
+  "expert_ceiling": {
+   "normalization": {
+    "formula": "p = clip((raw - random)/(ceiling - random), 0, 1)",
+    "random_scores": {
+     "SpaceInvaders": 148.0,
+     "Boxing": 0.1,
+     "Breakout": 1.7,
+     "Pong": -20.7,
+     "Qbert": 163.9
+    },
+    "ceiling_source": "experts/<Game>/meta.json best_greedy (from-scratch single-task expert peak)",
+    "ceilings": {
+     "SpaceInvaders": 1078.55,
+     "Boxing": 71.86,
+     "Breakout": 278.56,
+     "Pong": 20.0,
+     "Qbert": 18000.0
+    }
+   },
+   "matched_subset_games": [
+    "Breakout",
+    "Qbert"
+   ],
+   "per_method": {
+    "ours": {
+     "per_task": {
+      "Breakout": {
+       "AUC": 0.6165,
+       "AUC_b": 0.5365,
+       "cl_window_iters": [
+        599,
+        1799
+       ],
+       "n_cl_points": 7,
+       "FWT": 0.1725
+      },
+      "Pong": {
+       "AUC": 0.9877,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 0.2466,
+       "AUC_b": 0.1811,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": 0.08
+      }
+     },
+     "mean_FWT": 0.1263,
+     "mean_FWT_over_games": [
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": 0.1263
+    },
+    "cka_rl": {
+     "per_task": {
+      "SpaceInvaders": {
+       "AUC": 0.2764,
+       "AUC_b": 0.4356,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -0.282
+      },
+      "Boxing": {
+       "AUC": 0.4927,
+       "AUC_b": 0.8364,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -2.1009
+      },
+      "Breakout": {
+       "AUC": 0.0586,
+       "AUC_b": 0.701,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -2.1484
+      },
+      "Pong": {
+       "AUC": 0.7439,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 0.1536,
+       "AUC_b": 0.2084,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -0.0693
+      }
+     },
+     "mean_FWT": -1.1502,
+     "mean_FWT_over_games": [
+      "SpaceInvaders",
+      "Boxing",
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": -1.1089
+    },
+    "componet": {
+     "per_task": {
+      "SpaceInvaders": {
+       "AUC": 0.2411,
+       "AUC_b": 0.4356,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -0.3446
+      },
+      "Boxing": {
+       "AUC": 0.1878,
+       "AUC_b": 0.8364,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -3.9646
+      },
+      "Breakout": {
+       "AUC": 0.1046,
+       "AUC_b": 0.701,
+       "cl_window_iters": [
+        599,
+        2999
+       ],
+       "n_cl_points": 13,
+       "FWT": -1.9946
+      },
+      "Pong": {
+       "AUC": 0.0805,
+       "AUC_b": 1.0,
+       "cl_window_iters": [
+        599,
+        999
+       ],
+       "n_cl_points": 3,
+       "FWT": null,
+       "note": "ill-conditioned: 1-AUC_b=0.0000<0.05 (from-scratch baseline saturates ceiling)"
+      },
+      "Qbert": {
+       "AUC": 0.0,
+       "AUC_b": 0.2084,
+       "cl_window_iters": [
+        599,
+        1399
+       ],
+       "n_cl_points": 5,
+       "FWT": -0.2633
+      }
+     },
+     "mean_FWT": -1.6418,
+     "mean_FWT_over_games": [
+      "SpaceInvaders",
+      "Boxing",
+      "Breakout",
+      "Qbert"
+     ],
+     "matched_subset_mean_FWT": -1.1289
+    }
+   }
+  },
+  "gaps": [
+   "ours SpaceInvaders & Boxing CL curves UNAVAILABLE (ours run resumed from task3; SI/Boxing local phases not logged) -> FWT not computable for ours on those two games.",
+   "Pong FWT null under BOTH ceilings: fresh from-scratch Pong baseline saturates the normalized ceiling (AUC_b=1.0, 1-AUC_b<0.05) before the CL comparison window; expert ceiling for Pong = 20.0 == game max. Excluded from every mean.",
+   "single seed (seed0), no error bars.",
+   "matched-subset apples-to-apples set is only 2 games (Breakout, Qbert) because ours lacks SI/Boxing and Pong is degenerate."
+  ]
+ }
+}

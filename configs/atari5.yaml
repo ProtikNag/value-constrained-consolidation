@@ -1,0 +1,94 @@
+# ===== CANONICAL 5-game Atari setup (the min-max consolidation method) =====
+# min-max consolidation: mu-cap (duals.max_value) + a RETENTION-GATED global
+# early-stop. The global consolidation stops ONLY when EVERY seen task (past +
+# current) is >= global_retention_frac of its LOCAL model reference, else it runs
+# to the global_iters cap (checked every stop_eval_every iters). Reported eval is
+# greedy-100; Atari envs are uncapped (max_steps: 0).
+#   Sequence: Qbert -> Pong -> Breakout -> Boxing -> SpaceInvaders.
+#   Run:    python -m experiments.run --config configs/atari5.yaml --seed 0
+#   Resume: --resume-from results/atari5_seed0/global_after_task{k}.pt --resume-after {k}
+experiment:
+  name: atari5
+  seed: 0
+  results_dir: results
+  device: auto
+  log_every: 25
+env:
+  family: atari
+  params:
+    gamma: 0.99
+    max_steps: 0
+    frame_skip: 4
+    frame_stack: 4
+    noop_max: 50
+    terminal_on_life_loss: false
+    repeat_action_probability: 0.0
+    clip_rewards: true
+  tasks:
+  - game: Qbert
+    threshold: 4000
+  - game: Pong
+    threshold: 18
+  - game: Breakout
+    threshold: 80
+  - game: Boxing
+    threshold: 55
+  - game: SpaceInvaders
+    threshold: 800
+policy:
+  kind: impala_ac_multihead
+  hidden_sizes:
+  - 512
+  task_conditioned: false
+duals:
+  kind: projected_ascent
+  lr: 0.3
+  init: 0.0
+  max_value: 5.0          # mu cap (from v4)
+  warm_start: false
+trainer:
+  kind: ppo
+  cycles_per_task: 1
+  eps: 0.04
+  eval_all_tasks: false
+ppo:
+  method: constrained
+  async_envs: true
+  n_envs: 16
+  n_steps: 128
+  ppo_epochs: 3
+  num_minibatches: 4
+  clip_ratio: 0.1
+  gae_lambda: 0.95
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  lr: 0.0002
+  target_kl: 0.03
+  select_best_local: true
+  normalize_advantage: true
+  task1_iters: 1500
+  local_iters: 3000
+  local_iters_per_task:
+    Pong: 1500
+    Breakout: 3000
+    Boxing: 4000
+    SpaceInvaders: 3000
+  global_iters: 2000
+  min_iters: 500
+  patience: 3
+  # V5 retention-gated global early-stop
+  global_stop_all_tasks: true
+  global_retention_frac: 0.7
+  stop_eval_every: 200        # check all seen tasks every 200 global iters
+  stop_eval_episodes: 3       # 3 greedy episodes/task per check
+  past_task_sampling: all
+  constraint_episodes: 16
+  constraint_every: 20
+  eval_max_ep_steps: 10000
+  eval_noop_enumerate: false
+  eval_episodes: 100
+  eval_greedy: true
+  eval_greedy_episodes: 100
+  eval_seed: 100000
+  eval_every: 0
