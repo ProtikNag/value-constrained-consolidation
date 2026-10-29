@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Run outputs. Every figure and table regenerates from the records in
+# reports/, so nothing here needs to be tracked.
+results/
+runs/
+outputs/
+wandb/
+*.pt
+*.ckpt
+
+.DS_Store
+.pytest_cache/
+.coverage

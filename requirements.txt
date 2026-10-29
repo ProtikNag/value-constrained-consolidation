@@ -1,0 +1,7 @@
+torch>=2.0
+gymnasium>=0.29
+numpy>=1.24
+pyyaml>=6.0
+matplotlib>=3.7
+pytest>=7.4
+minatar>=1.0.15   # MinAtar tier (5 miniaturized Atari games)

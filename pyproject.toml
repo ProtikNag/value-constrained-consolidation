@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "value-constrained-consolidation"
+version = "0.1.0"
+description = "Constrained two-policy continual reinforcement learning (alternating local/global primal-dual policy gradient)"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "gymnasium>=0.29",
+    "numpy>=1.24",
+    "pyyaml>=6.0",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["crl*", "experiments*", "analysis*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

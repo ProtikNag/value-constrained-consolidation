@@ -1,0 +1,8 @@
+# Figure and dashboard pipeline (see .claude/skills/algorithmic-art-academic/SKILL.md)
+plotly>=5.24        # primary renderer; figures defined once, exported to PNG and SVG
+kaleido>=0.2.1      # static export backend for plotly
+imageio>=2.34       # stitches Kaleido-rendered frames into figure.gif
+numpy>=1.24
+pandas>=2.0
+markdown>=3.5       # optional: renders manifest `details` in the dashboard popovers
+playwright>=1.44    # dashboard verification; also needs `python -m playwright install chromium`
