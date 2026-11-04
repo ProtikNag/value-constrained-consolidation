@@ -1,0 +1,87 @@
+# === REVERSED 5-game Atari sequence — CLEAR replay baseline (Setting C) ===
+# Order + thresholds IDENTICAL to atari5_reversed.yaml (ours): the corrected
+# joint-reach thresholds (SpaceInvaders 900, Boxing 67, Breakout 285, Pong 20,
+# Qbert 4260), NOT the old low thresholds in the forward atari5_clear.yaml.
+# The ONLY method deltas vs atari5_reversed.yaml are CLEAR's: method: clear,
+# frame-matched single-phase budget (task1 1500 + local 3463 + global 3462,
+# patience disabled), and the clear_* buffer knobs. SI is task 1 at the shared
+# task1_iters=1500 to preserve frame-matching with ours (no per-game override).
+#   sbatch scripts/hpc_atari_worker.sbatch configs/atari5_rev_clear.yaml <seed>
+experiment:
+  name: atari5_rev_clear
+  seed: 0
+  results_dir: results
+  device: auto
+  log_every: 25
+env:
+  family: atari
+  params:
+    gamma: 0.99
+    max_steps: 0
+    frame_skip: 4
+    frame_stack: 4
+    noop_max: 50
+    terminal_on_life_loss: false
+    repeat_action_probability: 0.0
+    clip_rewards: true
+  tasks:
+  - game: SpaceInvaders
+    threshold: 900
+  - game: Boxing
+    threshold: 67
+  - game: Breakout
+    threshold: 285
+  - game: Pong
+    threshold: 20
+  - game: Qbert
+    threshold: 4260
+policy:
+  kind: impala_ac_multihead
+  hidden_sizes:
+  - 512
+  task_conditioned: false
+duals:
+  kind: projected_ascent
+  lr: 0.3
+  init: 0.0
+  max_value: 5.0
+  warm_start: false
+trainer:
+  kind: ppo
+  cycles_per_task: 1
+  eps: 0.04
+  eval_all_tasks: false
+ppo:
+  method: clear
+  async_envs: true
+  n_envs: 16
+  n_steps: 128
+  ppo_epochs: 3
+  num_minibatches: 4
+  clip_ratio: 0.1
+  gae_lambda: 0.95
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  lr: 0.0002
+  target_kl: 0.03
+  select_best_local: true
+  normalize_advantage: true
+  task1_iters: 1500
+  local_iters: 3463
+  global_iters: 3462
+  min_iters: 500
+  patience: 100000000        # disabled: spend the full frame-matched budget
+  stop_eval_every: 200
+  stop_eval_episodes: 3
+  eval_max_ep_steps: 10000
+  eval_noop_enumerate: false
+  eval_episodes: 100
+  eval_greedy: true
+  eval_greedy_episodes: 100
+  eval_seed: 100000
+  eval_every: 0
+  clear_policy_clone_cost: 0.01
+  clear_value_clone_cost: 0.005
+  clear_snapshot_batches: 4
+  clear_replay_task_per_step: 8

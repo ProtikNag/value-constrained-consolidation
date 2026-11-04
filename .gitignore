@@ -17,3 +17,6 @@ wandb/
 .DS_Store
 .pytest_cache/
 .coverage
+
+# Helvetica extracted from macOS by report/paperfig.py; Apple-licensed, never commit
+report/fonts/

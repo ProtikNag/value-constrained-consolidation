@@ -1,0 +1,52 @@
+{
+  "atari-SpaceInvaders": {
+    "task": 1,
+    "cka_rl": {
+      "iters_run": 3000,
+      "early_stopped": false,
+      "wall_s": 2934.7,
+      "final_greedy": 473.3333435058594,
+      "best_greedy": 593.3333129882812
+    }
+  },
+  "atari-Boxing": {
+    "task": 2,
+    "cka_rl": {
+      "iters_run": 2600,
+      "early_stopped": true,
+      "wall_s": 5286.0,
+      "final_greedy": 99.33333587646484,
+      "best_greedy": 99.33333587646484
+    }
+  },
+  "atari-Breakout": {
+    "task": 3,
+    "cka_rl": {
+      "iters_run": 3000,
+      "early_stopped": false,
+      "wall_s": 12549.7,
+      "final_greedy": 50.66666793823242,
+      "best_greedy": 50.66666793823242
+    }
+  },
+  "atari-Pong": {
+    "task": 4,
+    "cka_rl": {
+      "iters_run": 1500,
+      "early_stopped": false,
+      "wall_s": 4556.7,
+      "final_greedy": null,
+      "best_greedy": 20.0
+    }
+  },
+  "atari-Qbert": {
+    "task": 5,
+    "cka_rl": {
+      "iters_run": 1800,
+      "early_stopped": true,
+      "wall_s": 5497.3,
+      "final_greedy": 4425.0,
+      "best_greedy": 4425.0
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "run_name": "atari5_rev_ours_seed1",
+  "method": "constrained",
+  "seed": 1,
+  "git_sha": "4efdd6c",
+  "started": "2026-10-30T20:31:27.495670+00:00",
+  "env_family": "atari",
+  "tasks": [
+    "atari-SpaceInvaders",
+    "atari-Boxing",
+    "atari-Breakout",
+    "atari-Pong",
+    "atari-Qbert"
+  ],
+  "task_order": "as_configured",
+  "reference": {
+    "random": [
+      10.199999809265137,
+      -34.61000061035156,
+      0.0,
+      -21.0,
+      150.0
+    ],
+    "ceiling": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "config": {
+    "experiment": {
+      "name": "atari5_rev_ours",
+      "seed": 1,
+      "results_dir": "results",
+      "device": "auto",
+      "log_every": 25
+    },
+    "env": {
+      "family": "atari",
+      "params": {
+        "gamma": 0.99,
+        "max_steps": 0,
+        "frame_skip": 4,
+        "frame_stack": 4,
+        "noop_max": 50,
+        "terminal_on_life_loss": false,
+        "repeat_action_probability": 0.0,
+        "clip_rewards": true
+      },
+      "tasks": [
+        {
+          "game": "SpaceInvaders",
+          "threshold": 900
+        },
+        {
+          "game": "Boxing",
+          "threshold": 67
+        },
+        {
+          "game": "Breakout",
+          "threshold": 285
+        },
+        {
+          "game": "Pong",
+          "threshold": 20
+        },
+        {
+          "game": "Qbert",
+          "threshold": 4260
+        }
+      ]
+    },
+    "policy": {
+      "kind": "impala_ac_multihead",
+      "hidden_sizes": [
+        512
+      ],
+      "task_conditioned": false,
+      "pool_size": 5
+    },
+    "estimator": {
+      "kind": "exact",
+      "episodes_per_eval": 16,
+      "episodes_per_grad": 16,
+      "episodes_per_ref": 64,
+      "baseline": "batch_mean",
+      "time_discount_weighting": true
+    },
+    "duals": {
+      "kind": "projected_ascent",
+      "lr": 0.3,
+      "init": 0.0,
+      "max_value": 5.0,
+      "warm_start": false,
+      "decay_when_stuck": false,
+      "stuck_patience": 10,
+      "stuck_decay": 0.5,
+      "stuck_frac": 0.95,
+      "kp": 0.05,
+      "ki": 0.01,
+      "kd": 0.0
+    },
+    "trainer": {
+      "cycles_per_task": 1,
+      "local_steps": 50,
+      "global_steps": 50,
+      "task1_steps": 200,
+      "lr_local": 0.05,
+      "lr_global": 0.05,
+      "optimizer": "sgd",
+      "eps": 0.04,
+      "omega": null,
+      "past_task_sampling": "all",
+      "entropy_coef": 0.0,
+      "eval_episodes": 32,
+      "eval_all_tasks": false,
+      "eval_probe_every": 25,
+      "report_return": false,
+      "kind": "ppo",
+      "local_unconstrained": false
+    },
+    "ppo": {
+      "method": "constrained",
+      "past_task_sampling": "all",
+      "constraint_greedy": false,
+      "eval_noop_enumerate": false,
+      "eval_max_ep_steps": 10000,
+      "joint_iters": 2000,
+      "joint_single_iters": 600,
+      "global_bc_coef": 0.0,
+      "clear_policy_clone_cost": 0.01,
+      "clear_value_clone_cost": 0.005,
+      "clear_snapshot_batches": 2,
+      "clear_replay_task_per_step": 1,
+      "clear_env_access": false,
+      "recall_distill_cost": 10.0,
+      "recall_popart": true,
+      "recall_popart_beta": 0.0003,
+      "clear_past_frames_per_phase": 0,
+      "async_envs": true,
+      "n_envs": 16,
+      "n_steps": 128,
+      "ppo_epochs": 3,
+      "target_kl": 0.03,
+      "num_minibatches": 4,
+      "clip_ratio": 0.1,
+      "gae_lambda": 0.95,
+      "vf_coef": 0.5,
+      "ent_coef": 0.01,
+      "max_grad_norm": 0.5,
+      "lr": 0.0002,
+      "normalize_advantage": true,
+      "task1_iters": 1500,
+      "local_iters": 3000,
+      "local_iters_per_task": {
+        "Pong": 1500,
+        "Breakout": 3000,
+        "Boxing": 4000,
+        "SpaceInvaders": 3000
+      },
+      "select_best_local": true,
+      "local_init_fresh": false,
+      "local_max_attempts": 1,
+      "local_stall_at": 0,
+      "local_stall_thr": 0.1,
+      "global_stop_all_tasks": true,
+      "global_retention_frac": 0.7,
+      "global_iters": 2000,
+      "min_iters": 500,
+      "patience": 3,
+      "stop_eval_every": 200,
+      "stop_eval_episodes": 3,
+      "constraint_episodes": 16,
+      "constraint_every": 20,
+      "value_mode": "mc",
+      "window_H": 20,
+      "residual_baseline": "expert",
+      "residual_scalar": "rollout",
+      "past_task_sample_n": 1,
+      "past_full_rescale": false,
+      "past_fixed_fraction": 0.0,
+      "global_n_steps": 0,
+      "global_gae_lambda": 0.0,
+      "global_n_envs": 0,
+      "eval_episodes": 100,
+      "eval_greedy": true,
+      "eval_greedy_episodes": 100,
+      "eval_seed": 100000,
+      "eval_every": 200,
+      "matrix_eval_every": 0,
+      "diagnostics": false,
+      "diag_every": 25,
+      "diag_score_episodes": 6,
+      "global_probe_head_only": false
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "atari-SpaceInvaders": {
+    "task": 1,
+    "task1": {
+      "iters_run": 1500,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 3007.2,
+      "final_greedy": null,
+      "best_greedy": 465.0
+    },
+    "local_greedy": 506.1000061035156
+  }
+}

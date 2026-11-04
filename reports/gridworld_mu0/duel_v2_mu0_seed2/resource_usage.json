@@ -1,0 +1,896 @@
+{
+  "biggrid50-goal(12,40)": {
+    "task": 1,
+    "task1": {
+      "iters_run": 412,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 494.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9699520468711853
+  },
+  "biggrid50-goal(14,29)": {
+    "task": 2,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1308.1,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9663103222846985,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 618.1,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(37,22)": {
+    "task": 3,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1300.3,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9980413913726807,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 857.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(17,8)": {
+    "task": 4,
+    "local": {
+      "iters_run": 500,
+      "early_stopped": false,
+      "stalled": true,
+      "wall_s": 623.2,
+      "final_greedy": null,
+      "best_greedy": -0.001270918408408761
+    },
+    "local_greedy": 0.03236717730760574,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1007.5,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(41,10)": {
+    "task": 5,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1081.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9978029131889343,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 999.1,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(13,43)": {
+    "task": 6,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1107.4,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.7951507568359375,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 987.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(9,46)": {
+    "task": 7,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1078.5,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.978541910648346,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 984.1,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(18,34)": {
+    "task": 8,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1089.8,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.7967109680175781,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 984.4,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(17,26)": {
+    "task": 9,
+    "local": {
+      "iters_run": 500,
+      "early_stopped": false,
+      "stalled": true,
+      "wall_s": 551.4,
+      "final_greedy": null,
+      "best_greedy": -0.0008137755212374032
+    },
+    "local_greedy": 0.39324507117271423,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1773.6,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(45,12)": {
+    "task": 10,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1957.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9966915845870972,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1795.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(39,20)": {
+    "task": 11,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1995.1,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9024204015731812,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1806.1,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(46,3)": {
+    "task": 12,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2006.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9286375641822815,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1826.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(15,20)": {
+    "task": 13,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1994.1,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9506987929344177,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1797.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(25,5)": {
+    "task": 14,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2142.4,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9981386661529541,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1826.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(47,41)": {
+    "task": 15,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2159.0,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.8251638412475586,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1823.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(44,47)": {
+    "task": 16,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2159.6,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9929665923118591,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1886.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(18,22)": {
+    "task": 17,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2235.6,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9979242086410522,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1910.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(22,25)": {
+    "task": 18,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2298.0,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.997973620891571,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1923.5,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(3,42)": {
+    "task": 19,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2280.9,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 1.0034513473510742,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1909.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(35,8)": {
+    "task": 20,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 2211.0,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.837022066116333,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1912.4,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(28,27)": {
+    "task": 21,
+    "local": {
+      "iters_run": 500,
+      "early_stopped": false,
+      "stalled": true,
+      "wall_s": 1111.0,
+      "final_greedy": null,
+      "best_greedy": 0.00033775504562072456
+    },
+    "local_greedy": 0.5016200542449951,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1894.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(44,15)": {
+    "task": 22,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1405.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 1.0041429996490479,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1056.4,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(32,5)": {
+    "task": 23,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1295.2,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.7324981093406677,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1073.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(30,10)": {
+    "task": 24,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1333.1,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9528024792671204,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1088.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(2,25)": {
+    "task": 25,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1322.6,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9500856995582581,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1113.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(6,32)": {
+    "task": 26,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1457.4,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9798058271408081,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1126.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(44,25)": {
+    "task": 27,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1347.9,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.8175644278526306,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1094.2,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(26,45)": {
+    "task": 28,
+    "local": {
+      "iters_run": 500,
+      "early_stopped": false,
+      "stalled": true,
+      "wall_s": 712.5,
+      "final_greedy": null,
+      "best_greedy": 0.0005938775721006095
+    },
+    "local_greedy": 0.0014630950754508376,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1097.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(5,45)": {
+    "task": 29,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1387.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9737289547920227,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1107.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(18,11)": {
+    "task": 30,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1421.6,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9874866008758545,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1094.6,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(33,31)": {
+    "task": 31,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1389.0,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9989351034164429,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1114.5,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(12,3)": {
+    "task": 32,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1462.3,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9655950665473938,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1120.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(25,17)": {
+    "task": 33,
+    "local": {
+      "iters_run": 500,
+      "early_stopped": false,
+      "stalled": true,
+      "wall_s": 735.6,
+      "final_greedy": null,
+      "best_greedy": 0.0031091838609427214
+    },
+    "local_greedy": 0.5013392567634583,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1200.2,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(29,33)": {
+    "task": 34,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1620.9,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.995684027671814,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1246.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(6,39)": {
+    "task": 35,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1619.9,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9494462609291077,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1236.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(13,10)": {
+    "task": 36,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1614.4,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.8601933717727661,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1285.2,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(26,39)": {
+    "task": 37,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1702.5,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9197805523872375,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1243.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(46,35)": {
+    "task": 38,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1555.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.7757071256637573,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1201.4,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(22,4)": {
+    "task": 39,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1618.3,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9859654903411865,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1175.7,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(39,32)": {
+    "task": 40,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1544.3,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9932541251182556,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1182.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(23,42)": {
+    "task": 41,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1525.2,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9576091766357422,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1143.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(27,13)": {
+    "task": 42,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1546.5,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.8558518886566162,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1153.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(33,24)": {
+    "task": 43,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1581.5,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.995797872543335,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1189.1,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(40,38)": {
+    "task": 44,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1580.1,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9957979917526245,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1152.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(39,26)": {
+    "task": 45,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1577.8,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9084177017211914,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1226.0,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(21,36)": {
+    "task": 46,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1669.7,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9979777932167053,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1179.8,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(15,2)": {
+    "task": 47,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1715.0,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.7308071851730347,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1179.6,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(2,5)": {
+    "task": 48,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1862.4,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9957490563392639,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1273.3,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(6,16)": {
+    "task": 49,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1848.6,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9392131567001343,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1326.9,
+      "final_greedy": null
+    }
+  },
+  "biggrid50-goal(37,35)": {
+    "task": 50,
+    "local": {
+      "iters_run": 1000,
+      "early_stopped": false,
+      "stalled": false,
+      "wall_s": 1898.3,
+      "final_greedy": null,
+      "best_greedy": null
+    },
+    "local_greedy": 0.9681938886642456,
+    "global": {
+      "iters_run": 253,
+      "early_stopped": false,
+      "wall_s": 1301.4,
+      "final_greedy": null
+    }
+  }
+}

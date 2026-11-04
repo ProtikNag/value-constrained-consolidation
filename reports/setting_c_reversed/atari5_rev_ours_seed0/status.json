@@ -1,0 +1,10 @@
+{
+  "task_idx": 4,
+  "task": "atari-Qbert",
+  "phase": "global",
+  "iter": 16200,
+  "cumulative_step": 16200,
+  "alive": "2026-09-18T04:28:27.664837+00:00",
+  "t_wall": 152936.184,
+  "frames_total": 132710400
+}
