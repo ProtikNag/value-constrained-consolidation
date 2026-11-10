@@ -715,7 +715,14 @@ class GlobalTrainer(PPOTrainer):
                     })
                 else:
                     _mu_refreshed = False
-                coeff_k = mu * 2.0 * shortfall  # differentiated hinge, eqs 38/40
+                if cfg.global_current_uniform:
+                    # ABLATION: current task enters the uniform average with
+                    # omega_k = 1/k, same scale as each past stream (which carry
+                    # (1/k)*(k-1)/n after past_full_rescale). With mu pinned at 0
+                    # this is a plain uniform mean sum_{i<=k} (1/k) grad V_i.
+                    coeff_k = 1.0 / current_task
+                else:
+                    coeff_k = mu * 2.0 * shortfall  # differentiated hinge, eqs 38/40
                 # Anti-starvation cap: guarantee the past collectively keeps at
                 # least a fraction f of the (post-normalisation) update by bounding
                 # the current-task coefficient at past_total*(1-f)/f. When the

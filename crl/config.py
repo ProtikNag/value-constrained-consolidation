@@ -364,6 +364,13 @@ class PPOConfig:
     # can never monopolise the step and starve retention (0 = off).
     past_full_rescale: bool = False
     past_fixed_fraction: float = 0.0
+    # global_current_uniform -- ABLATION: in the global phase give the current
+    # task the uniform weight omega_k = 1/k (same scale as each past stream)
+    # instead of the differentiated hinge coeff_k = 2*mu*shortfall. Combined with
+    # duals.max_value=0 (mu pinned at 0) this makes the consolidation a plain
+    # uniform average sum_{i<=k} (1/k) grad V_i -- the specialist is inert, no
+    # constraint force. Default off (no change to existing runs).
+    global_current_uniform: bool = False
     # The global (consolidation) phase overrides these two. The LOCAL phase keeps
     # n_steps/gae_lambda, because ordinary truncated PPO with its own critic is
     # what produces a well-trained specialist and none of that needs changing.

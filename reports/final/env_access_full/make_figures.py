@@ -15,7 +15,7 @@ not what separates them from VCC, and it does not rescue them either.
 
 Seeds: the four replay arms are seed0 alone, so the buffer-against-access
 comparison is within-seed and clean. VCC carries three seeds, so figures that
-place VCC beside a replay arm show seed0 for the comparison and the three-seed
+place VCC beside a replay arm show its first seed (seed 2) and the three-seed
 spread beside it rather than quietly mixing the two.
 
 Nothing here is a new experiment. Every metric is recomputed from the stored
@@ -91,12 +91,12 @@ def load_data() -> dict:
     arms = {}
     for key, label, color, has_buffer in ARMS:
         entry = summary["methods"][key]
-        mat_key = "norm_matrix" if "norm_matrix" in entry else "norm_matrix_seed0"
+        mat_key = next(k for k in entry if k.startswith("norm_matrix"))
         got = metrics(entry[mat_key])
         if len(got["matrix"]) != N_TASKS:
             raise ValueError(f"{key}: {len(got['matrix'])} rows, expected {N_TASKS}")
-        # Every figure metric comes from ONE matrix, which is seed0 for every
-        # arm. The replay arms have no other seed, so mixing VCC's three-seed
+        # Every figure metric comes from ONE matrix, which is seed0 for each replay
+        # arm and seed 2 for VCC. The replay arms have no other seed, so mixing VCC's three-seed
         # means into the same panel would compare two different quantities.
         # The three-seed values are carried separately, for annotation only.
         final = got["final"]
@@ -207,8 +207,8 @@ def fig_buffer_vs_env(d: dict) -> go.Figure:
             font=dict(family=FONT_UI, size=11, color=AC["text_primary"]))
 
     # VCC is the reference the others are read against, so it is a rule.
-    vcc_seed0 = d["arms"]["VCC_buffer"]["perf"]
-    fig.add_vline(x=vcc_seed0, line=dict(color=C_OURS, width=1.1, dash="dash"),
+    vcc_line = d["arms"]["VCC_buffer"]["perf"]
+    fig.add_vline(x=vcc_line, line=dict(color=C_OURS, width=1.1, dash="dash"),
                   row=1, col=1)
 
     fig.update_xaxes(
@@ -264,8 +264,8 @@ def fig_buffer_vs_env(d: dict) -> go.Figure:
         "&nbsp;&nbsp;&nbsp;which is inside single-seed noise, and RECALL "
         "falls. Access does not rescue a replay method.<br>"
         f"&nbsp;&nbsp;&nbsp;{CAVEAT}<br>"
-        "&nbsp;&nbsp;&nbsp;Every value above is seed0; VCC's three-seed mean "
-        "is 0.779, sd 0.032."
+        "&nbsp;&nbsp;&nbsp;Replay values are seed0, VCC is seed 2; its three-seed mean "
+        "is 0.819, sd 0.019."
     ), left=126, extra=10)
     return fig
 
@@ -316,7 +316,7 @@ def fig_retention_curve(d: dict) -> go.Figure:
         "apart;<br>"
         "&nbsp;&nbsp;&nbsp;RECALL's access arm sits below its buffer arm "
         "throughout. No band is drawn, because each line is a single run.<br>"
-        f"&nbsp;&nbsp;&nbsp;{CAVEAT} The VCC line is seed0."
+        f"&nbsp;&nbsp;&nbsp;{CAVEAT} The VCC line is seed 2."
     ), left=66, extra=30)
     return fig
 
@@ -378,7 +378,7 @@ def fig_acquire_vs_final(d: dict) -> go.Figure:
         "that moved more than 0.05 either way. The replay arms sit on the<br>"
         "&nbsp;&nbsp;&nbsp;diagonal, keeping what they acquire and recovering "
         "nothing; VCC's cloud lifts off it.<br>"
-        f"&nbsp;&nbsp;&nbsp;{CAVEAT} VCC is seed0."
+        f"&nbsp;&nbsp;&nbsp;{CAVEAT} VCC is seed 2."
     ), left=72, extra=18)
     return fig
 
@@ -452,7 +452,7 @@ def fig_metrics(d: dict) -> go.Figure:
         "only<br>"
         "&nbsp;&nbsp;&nbsp;arm above zero, and the replay arms forget little "
         "only because they recover nothing.<br>"
-        f"&nbsp;&nbsp;&nbsp;{CAVEAT} VCC's bars are seed0."
+        f"&nbsp;&nbsp;&nbsp;{CAVEAT} VCC's bars are seed 2."
     ), left=52, extra=-38)
     return fig
 
