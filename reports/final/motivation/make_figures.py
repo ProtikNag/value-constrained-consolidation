@@ -16,8 +16,8 @@ middle column, and the question they raise belongs in Section 2 rather than in
 the first figure.
 
 Nothing here is a new experiment. Column A is the Average column of Table 1,
-column B is the PERF column of Table 3, and column C is the prior-four PERF
-column of Table 4.
+column B is the PERF column of Table 2, and column C is the prior-four PERF
+column of Table 3 (three-seed means).
 
 Usage::
 
@@ -52,11 +52,11 @@ XS = [0.0, 1.0, 2.0]
 # changes no value here, since it is never the strongest member.
 GROUPS = [
     ("VCC (ours)", C_OURS, 3.6,
-     [[0.742], [0.819], [0.670]]),
+     [[0.742], [0.819], [0.702]]),
     ("Replay", C_REPLAY, 2.2,
-     [[], [0.686, 0.590], [0.430]]),
+     [[], [0.686, 0.590], [0.225]]),
     ("Regularization and plasticity", C_FAIL, 2.4,
-     [[0.750, 0.683, 0.681], [0.012, -0.004, -0.001], [-0.250]]),
+     [[0.750, 0.683, 0.681], [0.012, -0.004, -0.001], [-0.266]]),
 ]
 # Replay methods are absent from the published table for the left-hand
 # benchmark. The series is carried in from the level every measured method

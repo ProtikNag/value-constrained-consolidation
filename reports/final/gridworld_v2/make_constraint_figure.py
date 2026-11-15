@@ -1,7 +1,7 @@
 """Figure 6 of the paper: per-task constraint shortfall before and after consolidation.
 
 Reads the dual trace of VCC seed 4 (Setting B) and compares the shortfall at the
-start and end of each task's global phase: (a) the two sorted shortfall curves,
+start and end of each task's consolidation phase: (a) the two sorted shortfall curves,
 (b) a before/after tally of tasks inside and outside the band. Writes PDF, PNG
 and SVG to this folder's pdf/, png/ and svg/.
 
@@ -46,7 +46,7 @@ mpl.rcParams.update({
 
 
 def task_shortfalls(path: Path) -> list[tuple[float, float]]:
-    """(first, last) current-task shortfall of each task's global phase."""
+    """(first, last) current-task shortfall of each task's consolidation phase."""
     by_task: dict[int, list[tuple[int, float]]] = {}
     for line in path.open():
         if '"dual"' in line:
@@ -78,8 +78,8 @@ def draw_curves(ax: plt.Axes, pairs: list[tuple[float, float]]) -> None:
 
     ax.fill_between(xs, after, before, color=AC["blue"], alpha=0.10, lw=0, zorder=1)
     ax.plot(xs, before, color=AC["muted"], lw=1.6, ls=(0, (2.5, 1.5)), zorder=2,
-            label="before global phase")
-    ax.plot(xs, after, color=AC["blue"], lw=2.0, zorder=3, label="after global phase")
+            label="before consolidation")
+    ax.plot(xs, after, color=AC["blue"], lw=2.0, zorder=3, label="after consolidation")
 
     ax.set_xlim(1, n)
     ax.set_ylim(-0.02, 1.02)
@@ -88,7 +88,7 @@ def draw_curves(ax: plt.Axes, pairs: list[tuple[float, float]]) -> None:
     ax.set_yticklabels(["0", "0.25", "0.50", "0.75", "1.00"])
     ax.tick_params(length=2.5, labelsize=7.5, pad=2)
     ax.set_xlabel("Tasks, each curve sorted by shortfall", fontsize=8, labelpad=2)
-    ax.set_ylabel("Shortfall\n(specialist value − global value)", fontsize=8,
+    ax.set_ylabel("Shortfall\n(specialist − generalist value)", fontsize=8,
                   labelpad=3, linespacing=1.15)
     ax.legend(loc="upper right", frameon=False, fontsize=7.3, handletextpad=0.4,
               handlelength=1.8, borderaxespad=0.2, labelspacing=0.3, labelcolor=AC["text"])
@@ -120,7 +120,7 @@ def draw_bars(ax: plt.Axes, pairs: list[tuple[float, float]]) -> None:
             left += width
 
     ax.set_yticks([1, 0])
-    ax.set_yticklabels(["Before\nglobal phase", "After\nglobal phase"], fontsize=8,
+    ax.set_yticklabels(["Before\nconsolidation", "After\nconsolidation"], fontsize=8,
                        color=AC["text"], linespacing=1.1)
     ax.set_xlim(0, n)
     ax.set_ylim(-0.42, 1.42)
