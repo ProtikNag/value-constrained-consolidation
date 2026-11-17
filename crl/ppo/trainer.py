@@ -653,15 +653,27 @@ class GlobalTrainer(PPOTrainer):
                 # compared against the tolerance eps and mu follows the projected
                 # dual ascent mu <- [mu + eta (F_k - eps)]_+ (eq 47).
                 if it % max(1, cfg.constraint_every) == 0:
-                    # MC estimate (always computed): V_k^G on the training-reward scale.
-                    _t = time.perf_counter()
-                    v_k_g, s_k_g, _, _ = evaluate_value_and_score(
-                        global_policy, task_k, cfg.constraint_episodes,
-                        cfg.n_envs, self.device, seed=cfg.eval_seed,
-                        greedy=cfg.constraint_greedy,
-                        noop_enumerate=cfg.eval_noop_enumerate,
-                        max_ep_steps=cfg.eval_max_ep_steps)
-                    t_mc_s = time.perf_counter() - _t  # wall time of the MC estimator
+                    # MC estimate of V_k^G. SKIPPED when value_mode=="bootstrap":
+                    # the windowed estimator then drives the constraint exclusively,
+                    # so the full-episode MC rollouts (and the boot-vs-MC diagnostic)
+                    # are not computed -- v_k_g/s_k_g are logged as NaN. For "mc" and
+                    # "residual" it is computed exactly as before (gate is inert for
+                    # them). This changes NO reported metric: perf/bwt/forgetting/
+                    # >=0.9/<=0.1 come from eval_matrix (per-task greedy eval), and
+                    # the retention early-stop uses greedy scores, neither of which
+                    # touches v_k_g; checkpointing/resume are unaffected.
+                    if cfg.value_mode == "bootstrap":
+                        v_k_g = s_k_g = float("nan")
+                        t_mc_s = float("nan")
+                    else:
+                        _t = time.perf_counter()
+                        v_k_g, s_k_g, _, _ = evaluate_value_and_score(
+                            global_policy, task_k, cfg.constraint_episodes,
+                            cfg.n_envs, self.device, seed=cfg.eval_seed,
+                            greedy=cfg.constraint_greedy,
+                            noop_enumerate=cfg.eval_noop_enumerate,
+                            max_ep_steps=cfg.eval_max_ep_steps)
+                        t_mc_s = time.perf_counter() - _t  # wall time of the MC estimator
                     # Windowed-bootstrap estimate (always computed when a local critic
                     # is available) -> the boot-vs-MC bias diagnostic.
                     vk_l_boot = vk_g_boot = float("nan")

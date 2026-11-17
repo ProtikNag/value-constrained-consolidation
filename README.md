@@ -42,7 +42,7 @@ records it produced plus the script that draws its figures.
 | Setting B, fifty GridWorld tasks | `duel_v2_fix_fresh.yaml`, `biggrid50v2_*.yaml` | `reports/final/gridworld_v2/`, `reports/final/motivation/`, `reports/biggrid50v2/`, `reports/gridworld_mu0/run_logs/` (raw VCC logs) |
 | Setting B, environment access | `biggrid50v2_*_env.yaml` | `reports/final/env_access_full/`, `reports/gridworld_env_access/` |
 | Setting C, five Atari games | `atari5*.yaml`, `atari_base_*.yaml`, `atari5_rev_clear.yaml` | `reports/final/atari_reversed/`, `reports/setting_c_reversed/` (3 seeds), `reports/order_sensitivity/` |
-| Ablations | `abl_*.yaml`, `biggrid50_*.yaml`, `duel_v2_mu0.yaml`, `duel_v2_uniform.yaml`, `sweeps/` | `reports/final/ablation/`, `reports/final/boot_vs_mc_gridworld/`, `reports/gridworld_ablations/`, `reports/gridworld_mu0/` (constraint off and uniform weights, full sequence, 3 seeds each) |
+| Ablations | `abl_*.yaml`, `biggrid50_*.yaml`, `duel_v2_mu0.yaml`, `duel_v2_uniform.yaml`, `sweeps/`, `duel_v2_eps*_len15.yaml`, `duel_v2_window_h10.yaml` | `reports/final/ablation/`, `reports/final/boot_vs_mc_gridworld/`, `reports/gridworld_ablations/`, `reports/gridworld_mu0/` (constraint off and uniform weights, full sequence, 3 seeds each), `reports/gridworld_eps_sweep/` (tolerance sweep, first 15 tasks, 3 seeds), `reports/gridworld_windowed/` (windowed against full-episode shortfall, first 15 tasks, 3 seeds) |
 | Value-parameter landscape | `biggrid50v2.yaml` | `reports/final/landscape/` |
 | The fifty-task set itself | `biggrid50v2.yaml`, `biggrid50v2.manifest.json` | `data/biggrid50v2.npz` |
 
