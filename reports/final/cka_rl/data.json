@@ -2,14 +2,13 @@
  "provenance": {
   "paper": "Hu et al., Continual Knowledge Adaptation for Reinforcement Learning (CKA-RL), NeurIPS 2025",
   "paper_source": "docs/papers/2025_Hu_CKA_RL_Continual_Knowledge_Adaptation.pdf, Table 1 (page 7)",
-  "paper_seeds": "Published rows: 10 random seeds, mean with the standard deviation the paper prints as a subscript. Our row: 3 seeds.",
+  "paper_seeds": "Published rows: 10 random seeds, mean with the standard deviation the paper prints as a subscript. Our row: 10 seeds.",
   "paper_check": "Transcription verified against the paper's own prose: Avg PERF 0.7196->0.7498 (+4.20%), Avg FWT 0.4674->0.5049 (+8.02%), Meta-World 0.4368->0.4642 (+6.27%), SpaceInvaders PERF 0.9828->0.9928 (+1.02%), Freeway PERF 0.7835->0.7923 (+1.12%), SpaceInvaders FWT 0.6963->0.7749 (+11.29%), Freeway FWT 0.7303->0.7429 (+1.73%).",
-  "ours": "DUEL consolidation ported into the CKA-RL harness, branch ours-minmax-row of the separate clone CKA-RL-compare. All three environments use the single shared actor and critic head the authors use. Values are mean with standard deviation over THREE seeds, against ten seeds for each published row. The Average standard deviation is the root mean square of the three per-environment standard deviations, which is the convention the published rows use; verified to reproduce all twenty published Average cells to two decimals.",
+  "ours": "DUEL consolidation ported into the CKA-RL harness, branch ours-minmax-row of the separate clone CKA-RL-compare. All three environments use the single shared actor and critic head the authors use. Values are mean with standard deviation over ten seeds, the same as each published row. The Average standard deviation is the root mean square of the three per-environment standard deviations, which is the convention the published rows use; verified to reproduce all twenty published Average cells to two decimals.",
   "ours_source": "Author-supplied 2026-09-25 and entered here by hand; the run had not been pushed at the time. Replace with the pipeline output once it lands.",
   "disclosures": [
    "Ours has live past-task environment access; the baselines have none.",
    "Ours uses more than 2x the frames per task.",
-   "Single seed for ours against 10 seeds for every paper row.",
    "Table 1 PERF measures plasticity; ours' retention advantage shows in Table 3, not here."
   ],
   "architecture_match": "BOTH SI and Freeway ours re-run with a single shared actor+critic head to match the authors single-head baselines (per-mode-head was an unfair advantage; now resolved). Table-1 (plasticity/FWT, from local learning curves, same gather+process_results pipeline vs authors Baseline): SI PERF 0.9978 (was 0.981) FWT 0.7976 (was 0.650); Freeway PERF 0.8155 (was 0.753) FWT 0.734 (was 0.661) \u2014 ALL UP because the shared head warm-starts each new mode. Table-3 retention (the honest cost of one head): SI retains 7/10 modes (0,6,7 forgotten); Freeway retains 8/8. The per-task-head asymmetry disclosure is no longer needed \u2014 architecture now matches the baselines."

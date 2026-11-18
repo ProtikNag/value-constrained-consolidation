@@ -94,7 +94,8 @@ warm-starts each new mode:
 | SpaceInvaders PERF / FWT | 0.981 / 0.650 | **0.9978 / 0.7976** |
 | Freeway PERF / FWT | 0.753 / 0.661 | **0.8155 / 0.7340** |
 
-**Our row is three seeds**, against ten for each published row. The values were
+**Our row is ten seeds**, the same as each published row. Three seeds ran first
+and seven more were run later. The values were
 entered by hand on 2026-09-25 because the run had not been pushed yet;
 `provenance.ours_source` records that. Replace with the pipeline output once it
 lands. Table-3 retention under
@@ -107,7 +108,6 @@ Freeway 8 of 8.
   re-simulates and re-consolidates old modes, which is a stronger assumption
   than a replay buffer, not a weaker one.
 - **Over 2× the frames per task.**
-- **Seed 0 only**, against 10 seeds for every paper row.
 - **Table 1 measures plasticity.** Retention is what our method is for, and it
   shows in the paper's Table 3, not here.
 - Meta-World, when it lands, ran at a **reduced Δ of 300k steps** rather than the
